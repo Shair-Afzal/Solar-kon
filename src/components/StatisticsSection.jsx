@@ -1,4 +1,5 @@
-// StatisticsSection component using Bootstrap
+import { motion } from 'framer-motion';
+
 function StatisticsSection() {
   const stats = [
     { number: '10k+', label: 'Solar Installations' },
@@ -7,24 +8,25 @@ function StatisticsSection() {
   ];
 
   return (
-    <section className="py-4 py-md-5 bg-white">
-      <div className="container">
-        <div className="row g-3 text-center">
+    <section className='section-shell' data-aos='fade-up'>
+      <div className='container'>
+        <div className='row g-3 g-lg-4 text-center'>
           {stats.map((stat, index) => (
-            <div key={index} className="col-12 col-md-4">
-              <div
-                className="p-4 rounded-4 h-100"
-                style={{
-                  backgroundColor: index === 1 ? '#e8f5e9' : '#f5fbe9',
-                  border: '1px solid rgba(34,197,94,0.15)',
-                }}
-              >
-                <div className="fw-bold" style={{ color: '#22C55E', fontSize: '2.2rem' }}>
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              className='col-12 col-md-4'
+            >
+              <div className='stat-card h-100'>
+                <div className='fw-bold' style={{ color: '#22C55E', fontSize: '2.2rem' }}>
                   {stat.number}
                 </div>
-                <div className="text-muted small text-uppercase">{stat.label}</div>
+                <div className='text-muted small text-uppercase'>{stat.label}</div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,5 +1,5 @@
-// FAQSection component using Bootstrap
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -27,50 +27,62 @@ function FAQSection() {
     },
   ];
 
+  const toggleIndex = (index) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
-    <section className="py-5 bg-white">
-      <div className="container">
-        <div className="text-center mb-4">
-          <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#22C55E' }}>
-            FAQ
-          </div>
-          <h2 className="fw-bold" style={{ color: '#2D5016', fontSize: '2.2rem' }}>
+    <section className='section-shell bg-white' data-aos='fade-up'>
+      <div className='container'>
+        <div className='text-center mb-5 section-heading'>
+          <span className='eyebrow'>FAQ</span>
+          <h2 className='fw-bold section-title mt-3' style={{ fontSize: '2.3rem' }}>
             Frequently Asked Questions
           </h2>
         </div>
 
-        <div className="mx-auto" style={{ maxWidth: 720 }}>
-          {faqs.map((faq, index) => (
-            <div key={index} className="border rounded-3 mb-3">
-              <button
-                type="button"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-100 border-0 bg-white text-start px-3 px-md-4 py-3 d-flex align-items-center justify-content-between"
-              >
-                <span className="fw-semibold" style={{ color: '#2D5016' }}>
-                  {faq.question}
-                </span>
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="#22C55E"
-                  viewBox="0 0 24 24"
-                  style={{
-                    transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
-                    transition: 'transform 0.2s',
-                  }}
+        <div className='mx-auto' style={{ maxWidth: 760 }}>
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div key={faq.question} className='accordion-card mb-3'>
+                <button
+                  type='button'
+                  onClick={() => toggleIndex(index)}
+                  className='w-100 border-0 bg-transparent text-start px-4 py-3 d-flex align-items-center justify-content-between accordion-trigger'
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openIndex === index && (
-                <div className="px-3 px-md-4 pb-3 bg-light">
-                  <p className="text-muted small mb-0">{faq.answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
+                  <span>{faq.question}</span>
+                  <svg
+                    width='20'
+                    height='20'
+                    fill='none'
+                    stroke='#22C55E'
+                    viewBox='0 0 24 24'
+                    style={{
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s',
+                    }}
+                  >
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
+                  </svg>
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key='content'
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className='px-4 pb-3'
+                    >
+                      <p className='text-muted small mb-0'>{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

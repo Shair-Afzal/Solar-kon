@@ -8,15 +8,14 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-5" style={{ backgroundColor: '#2D5016' }}>
+    <section className="section-shell section-dark" data-aos="fade-up">
       <div className="container">
         <div className="row g-4 g-lg-5 align-items-center mb-5">
-          {/* Gallery */}
           <div className="col-lg-7 order-2 order-lg-1">
             <div className="row g-3">
               {gallery.map((src, index) => (
-                <div key={index} className="col-6">
-                  <div className="rounded-4 overflow-hidden shadow-sm card-hover">
+                <div key={src} className="col-6">
+                  <div className="rounded-4 overflow-hidden surface-card surface-card--muted">
                     <div
                       style={{
                         height: index % 2 === 0 ? 140 : 180,
@@ -31,7 +30,6 @@ function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Text */}
           <div className="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
             <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#A7F3D0' }}>
               See The Power Of Solar In Action
@@ -58,8 +56,7 @@ function WhyChooseUs() {
           </div>
         </div>
 
-        {/* Bottom CTA band */}
-        <div className="rounded-4 p-4 p-md-5 bg-opacity-90" style={{ backgroundColor: '#111827' }}>
+        <div className="rounded-4 p-4 p-md-5 bg-opacity-90 surface-card surface-card--muted">
           <div className="row align-items-center g-3 g-md-4">
             <div className="col-md-8 text-center text-md-start">
               <h3 className="fw-bold text-white mb-2" style={{ fontSize: '1.6rem' }}>

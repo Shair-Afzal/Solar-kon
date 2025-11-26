@@ -16,25 +16,25 @@ function ValuesSection() {
   ];
 
   return (
-    <section className="py-5 bg-white">
+    <section className="section-shell bg-white" data-aos="fade-up">
       <div className="container">
-        <div className="mb-4 text-center text-md-start">
+        <div className="mb-4 text-center text-md-start section-heading">
           <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#22C55E' }}>
             Our Values
           </div>
-          <h2 className="fw-bold mb-2" style={{ color: '#2D5016', fontSize: '2rem' }}>
+          <h2 className="fw-bold mb-2 section-title" style={{ fontSize: '2rem' }}>
             Our Values At Solarkon Solar Panel Solutions
           </h2>
-          <p className="text-muted mb-0" style={{ maxWidth: 620 }}>
+          <p className="text-muted mb-0 section-subtitle" style={{ maxWidth: 620 }}>
             We believe solar should be simple, accessible, and built to last. Our team is committed to
             delivering systems that perform beautifully for years to come.
           </p>
         </div>
 
         <div className="row g-3 g-md-4">
-          {values.map((value, index) => (
-            <div key={index} className="col-md-4">
-              <div className="h-100 p-3 p-md-4 rounded-4 shadow-sm card-hover">
+          {values.map((value) => (
+            <div key={value.title} className="col-md-4">
+              <div className="h-100 p-4 surface-card">
                 <h3 className="fw-semibold mb-2" style={{ fontSize: '1rem', color: '#111827' }}>
                   {value.title}
                 </h3>

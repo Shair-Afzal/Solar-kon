@@ -28,26 +28,27 @@ function TeamSection() {
   ];
 
   return (
-    <section className="py-5 bg-white">
+    <section className="section-shell bg-white" data-aos="fade-up">
       <div className="container">
-        <div className="text-center mb-4 mb-md-5">
+        <div className="text-center mb-4 mb-md-5 section-heading">
           <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#22C55E' }}>
             Our Team
           </div>
-          <h2 className="fw-bold mb-2" style={{ color: '#2D5016', fontSize: '2rem' }}>
+          <h2 className="fw-bold mb-2 section-title" style={{ fontSize: '2rem' }}>
             Meet Our Best Team
           </h2>
-          <p className="text-muted mb-0" style={{ maxWidth: 600, margin: '0 auto' }}>
+          <p className="text-muted mb-0 mx-auto section-subtitle" style={{ maxWidth: 600 }}>
             Passionate professionals dedicated to helping you make the switch to clean energy with
             confidence.
           </p>
         </div>
 
         <div className="row g-4">
-          {team.map((member, index) => (
-            <div key={index} className="col-6 col-md-3">
-              <div className="h-100 text-center rounded-4 shadow-sm card-hover overflow-hidden">
+          {team.map((member) => (
+            <div key={member.name} className="col-6 col-md-3">
+              <div className="h-100 text-center rounded-4 surface-card overflow-hidden">
                 <div
+                  className="w-100"
                   style={{
                     height: 180,
                     backgroundImage: `url(${member.image})`,

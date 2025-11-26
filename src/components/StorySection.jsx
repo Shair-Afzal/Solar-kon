@@ -46,7 +46,7 @@ function StorySection() {
               Powering A Greener Future, One Roof At A Time
             </h2>
             <p className="text-muted mb-4">
-              Solvix was founded with a simple mission: make clean, affordable solar energy accessible
+              SOLARKON was founded with a simple mission: make clean, affordable solar energy accessible
               to everyone. From the first consultation to ongoing support, we handle every step so you
               can enjoy worry-free solar for years to come.
             </p>

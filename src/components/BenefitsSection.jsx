@@ -1,5 +1,5 @@
-// BenefitsSection component using Bootstrap
-import { HiCurrencyDollar, HiArrowTrendingUp, HiGlobeAlt, HiHomeModern } from 'react-icons/hi2';
+import { HiCurrencyDollar, HiArrowTrendingUp, HiGlobeAlt } from 'react-icons/hi2';
+import { motion } from 'framer-motion';
 
 function BenefitsSection() {
   const benefits = [
@@ -20,12 +20,12 @@ function BenefitsSection() {
     },
     {
       icon: (
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg width='24' height='24' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
           />
         </svg>
       ),
@@ -35,64 +35,71 @@ function BenefitsSection() {
   ];
 
   return (
-    <section id="about" style={{ backgroundColor: '#2D5016' }} className="py-5 py-md-5">
-      <div className="container">
-        <div className="row align-items-center g-4 g-lg-5">
-          {/* Image Column */}
-          <div className="col-lg-6 order-1 order-lg-1">
-            <div
-              className="rounded-4 mb-4 mb-lg-0 d-flex align-items-center justify-content-center shadow-sm"
+    <section
+      id='about'
+      className='section-shell section-dark position-relative overflow-hidden'
+      data-aos='fade-up'
+    >
+      <div className='container position-relative'>
+        <span className='accent-blur' style={{ top: '-40px', right: '5%' }}></span>
+        <div className='row align-items-center g-4 g-lg-5'>
+          <div className='col-lg-6 order-2 order-lg-1'>
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className='pe-lg-4'
+            >
+              <div className='eyebrow mb-3' style={{ background: 'rgba(34,197,94,0.2)' }}>
+                // Benefits
+              </div>
+              <h2 className='fw-bold text-white mb-3' style={{ fontSize: '2.4rem' }}>
+              The Benefits Of Going Solar With SOLARKON
+              </h2>
+              <p className='text-white-50 mb-4'>
+                Unlock the power of solar energy and enjoy long-term advantages.
+              </p>
+              <div className='row g-4'>
+                {benefits.map((benefit, index) => (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.05 }}
+                    className='col-sm-6 d-flex'
+                  >
+                    <div className='flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle me-3 icon-badge-hover gradient-border' style={{ width: 52, height: 52 }}>
+                      {benefit.icon}
+                    </div>
+                    <div>
+                      <h3 className='text-white fw-bold mb-1' style={{ fontSize: '1rem' }}>
+                        {benefit.title}
+                      </h3>
+                      <p className='text-white-50 small mb-0'>{benefit.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div className='col-lg-6 order-1 order-lg-2'>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className='gradient-border rounded-4 overflow-hidden shadow-lg tilt-float'
               style={{
-                height: 300,
+                minHeight: 320,
                 backgroundImage:
                   'url(https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
-            >
-              <span className="text-white-50 fs-5 d-lg-none">Solar Panels Field</span>
-            </div>
-          </div>
-
-          {/* Right Column - Text Content */}
-          <div className="col-lg-6 order-2 order-lg-2">
-            <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#22C55E' }}>
-              // Benefits
-            </div>
-            <h2 className="fw-bold text-white mb-3" style={{ fontSize: '2.2rem' }}>
-              The Benefits Of Going Solar With Solvix
-            </h2>
-            <p className="text-white-50 mb-0">
-              Unlock the power of solar energy and enjoy long-term advantages.
-            </p>
-          </div>
-
-          {/* Benefits List */}
-          <div className="col-lg-12 order-3">
-            {/* Benefits List */}
-            <div className="row g-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="col-md-6 d-flex">
-                  <div
-                    className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle me-3 icon-badge-hover"
-                    style={{
-                      width: 48,
-                      height: 48,
-                      backgroundColor: '#22C55E',
-                      color: '#2D5016',
-                    }}
-                  >
-                    {benefit.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-white fw-bold mb-1" style={{ fontSize: '1rem' }}>
-                      {benefit.title}
-                    </h3>
-                    <p className="text-white-50 small mb-0">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            ></motion.div>
           </div>
         </div>
       </div>

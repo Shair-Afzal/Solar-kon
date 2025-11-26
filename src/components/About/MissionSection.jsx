@@ -10,32 +10,29 @@ function MissionSection() {
   ];
 
   return (
-    <section className="py-5 bg-white">
+    <section className="section-shell bg-white" data-aos="fade-up">
       <div className="container">
         <div className="row align-items-center g-4 g-lg-5">
-          {/* Image */}
-          <div className="col-lg-6 order-1 order-lg-1">
-            <div className="rounded-4 overflow-hidden shadow-sm">
-              <div
-                style={{
-                  height: 280,
-                  backgroundImage: `url(${missionImage})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              />
-            </div>
+          <div className="col-lg-6">
+            <div
+              className="rounded-4 overflow-hidden gradient-border tilt-float"
+              style={{
+                minHeight: 280,
+                backgroundImage: `url(${missionImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            />
           </div>
 
-          {/* Text + stats */}
-          <div className="col-lg-6 order-2 order-lg-2">
+          <div className="col-lg-6">
             <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#22C55E' }}>
               // About
             </div>
-            <h2 className="fw-bold mb-3" style={{ color: '#2D5016', fontSize: '2rem' }}>
+            <h2 className="fw-bold mb-3 section-title" style={{ fontSize: '2rem' }}>
               Innovating Solar Solutions For A Sustainable Tomorrow
             </h2>
-            <p className="text-muted mb-4">
+            <p className="text-muted mb-4 section-subtitle">
               Solarkon is a leading provider of solar energy solutions, helping homeowners, businesses,
               and communities transition to clean, renewable power. Our in-house design, engineering,
               and installation teams work together to deliver systems that are efficient, reliable, and
@@ -43,13 +40,13 @@ function MissionSection() {
             </p>
 
             <div className="row g-3">
-              {stats.map((item, index) => (
-                <div key={index} className="col-4">
-                  <div className="text-center text-lg-start">
+              {stats.map((item) => (
+                <div key={item.label} className="col-4">
+                  <div className="stat-card text-center text-lg-start">
                     <div className="fw-bold" style={{ color: '#2D5016', fontSize: '1.2rem' }}>
                       {item.value}
                     </div>
-                    <div className="text-muted small">{item.label}</div>
+                    <div className="text-muted small text-uppercase">{item.label}</div>
                   </div>
                 </div>
               ))}

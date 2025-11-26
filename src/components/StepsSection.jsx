@@ -1,4 +1,5 @@
-// StepsSection component using Bootstrap
+import { motion } from 'framer-motion';
+
 function StepsSection() {
   const steps = [
     {
@@ -19,72 +20,83 @@ function StepsSection() {
   ];
 
   return (
-    <section style={{ backgroundColor: '#2D5016' }} className="py-5 py-md-5">
-      <div className="container">
-        <div className="text-center mb-4">
-          <div className="text-uppercase small fw-semibold mb-2" style={{ color: '#22C55E' }}>
+    <section
+      className='section-shell section-dark position-relative overflow-hidden'
+      data-aos='fade-up'
+    >
+      <div className='container position-relative'>
+        <motion.div
+          className='text-center mb-5 section-heading'
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <span className='eyebrow' style={{ background: 'rgba(34,197,94,0.2)' }}>
             How It Works
-          </div>
-          <h2 className="fw-bold text-white" style={{ fontSize: '2.2rem' }}>
+          </span>
+          <h2 className='fw-bold text-white mt-3' style={{ fontSize: '2.3rem' }}>
             Switching To Solar In 3 Easy Steps
           </h2>
+        </motion.div>
+
+        <div className='row g-4 mb-4'>
+          <div className='col-lg-6'>
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className='stack-large gradient-border'
+              style={{
+                backgroundImage:
+                  'url(https://images.pexels.com/photos/9875440/pexels-photo-9875440.jpeg?auto=compress&cs=tinysrgb&w=1200)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            ></motion.div>
+          </div>
+          <div className='col-lg-6'>
+            <div className='image-stack'>
+              {[
+                'https://images.pexels.com/photos/9875446/pexels-photo-9875446.jpeg?auto=compress&cs=tinysrgb&w=1200',
+                'https://images.pexels.com/photos/9875443/pexels-photo-9875443.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              ].map((url, idx) => (
+                <motion.div
+                  key={url}
+                  className='stack-small gradient-border'
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  style={{
+                    backgroundImage: `url(${url})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                ></motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="row g-4 mb-4">
-          {/* Large Image */}
-          <div className="col-lg-6">
-            <div
-              className="rounded-4 mb-3 mb-lg-0"
-              style={{
-                height: 320,
-                backgroundImage:
-                  'url(https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-          </div>
-
-          {/* Two Smaller Images */}
-          <div className="col-lg-6 d-flex flex-column gap-3">
-            <div
-              className="rounded-4"
-              style={{
-                height: 150,
-                backgroundImage:
-                  'url(https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=900&q=80)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-            <div
-              className="rounded-4"
-              style={{
-                height: 150,
-                backgroundImage:
-                  'url(https://images.unsplash.com/photo-1438978189732-53f498b5d3c1?auto=format&fit=crop&w=900&q=80)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Steps List */}
-        <div className="row g-4">
+        <div className='row g-4'>
           {steps.map((step, index) => (
-            <div key={index} className="col-md-4 text-md-start text-center">
-              <div
-                className="fw-bold mb-2"
-                style={{ color: '#22C55E', fontSize: '3rem', opacity: 0.6 }}
-              >
+            <motion.div
+              key={step.title}
+              className='col-md-4 text-md-start text-center'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className='fw-bold text-white-50 mb-2' style={{ fontSize: '3rem' }}>
                 {step.number}
               </div>
-              <h3 className="text-white fw-bold mb-2" style={{ fontSize: '1.25rem' }}>
+              <h3 className='text-white fw-bold mb-2' style={{ fontSize: '1.25rem' }}>
                 {step.title}
               </h3>
-              <p className="text-white-50 small mb-0">{step.description}</p>
-            </div>
+              <p className='text-white-50 small mb-0'>{step.description}</p>
+            </motion.div>
           ))}
         </div>
       </div>

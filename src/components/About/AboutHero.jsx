@@ -19,35 +19,31 @@ function AboutHero() {
   ];
 
   return (
-    <section className="py-5 bg-white">
+    <section className="section-shell bg-white" data-aos="fade-up">
       <div className="container">
-        {/* Heading */}
-        <div className="text-center mb-4 mb-md-5">
-          <h1 className="fw-bold mb-2" style={{ color: '#2D5016', fontSize: '2.3rem' }}>
+        <div className="text-center mb-4 mb-md-5 section-heading">
+          <h1 className="fw-bold mb-2 section-title" style={{ fontSize: '2.3rem' }}>
             Powering A Brighter Future
           </h1>
-          <p className="text-muted mb-0" style={{ maxWidth: 540, margin: '0 auto' }}>
+          <p className="text-muted mb-0 mx-auto section-subtitle" style={{ maxWidth: 540 }}>
             Join us in building a sustainable, cost-effective future powered by the sun.
           </p>
         </div>
 
-        {/* Hero image */}
-        <div className="rounded-4 overflow-hidden shadow-sm mb-4 mb-md-5">
-          <div
-            style={{
-              height: 260,
-              backgroundImage: `url(${heroImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-        </div>
+        <div
+          className="rounded-4 overflow-hidden surface-card mb-4 mb-md-5 tilt-float"
+          style={{
+            minHeight: 260,
+            backgroundImage: `url(${heroImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
 
-        {/* Awards / badges */}
         <div className="row g-4 text-center text-md-start">
           {awards.map((award, index) => (
-            <div key={index} className="col-md-4">
-              <div className="d-flex flex-column align-items-center align-items-md-start">
+            <div key={award.title} className="col-md-4">
+              <div className="surface-card h-100 p-4 d-flex flex-column align-items-center align-items-md-start">
                 <div
                   className="d-flex align-items-center justify-content-center rounded-circle mb-3 icon-badge-hover"
                   style={{
