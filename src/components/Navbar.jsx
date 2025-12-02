@@ -18,17 +18,17 @@ function Navbar() {
   ];
 
   return (
-    <header className="py-2 position-sticky top-0 z-2">
+    <header className="position-sticky top-0 z-5" style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem' }}>
       <nav className="container">
         <div className="glass-nav d-flex align-items-center justify-content-between gap-3">
-          <div className="d-flex align-items-center gap-2">
+          <div className="d-flex align-items-center gap-2 flex-shrink-0">
             <img
               src={webLogo}
               alt="SOLARKON logo"
               className="logo-mark"
-              style={{ height: 50 }}
+              style={{ height: 35, width: 'auto' }}
             />
-            <span className="fw-bold fs-4" style={{ color: "#2D5016" }}>
+            <span className="fw-bold" style={{ color: "#2D5016", fontSize: '1.5rem' }}>
               SOLARKON
             </span>
           </div>

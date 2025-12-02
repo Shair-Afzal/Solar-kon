@@ -14,6 +14,10 @@
   scroll-behavior: smooth;
 }
 
+.text-brand-primary {
+  color: var(--brand-primary) !important;
+}
+
 *,
 *::before,
 *::after {
@@ -359,5 +363,564 @@ section {
 
   .hero-visual {
     min-height: 280px;
+  }
+}
+
+/* Admin Dashboard Styles */
+@media (max-width: 991.98px) {
+  .admin-main-content {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.admin-sidebar-link {
+  transition: all 0.2s ease;
+}
+
+.admin-sidebar-link:hover {
+  background-color: rgba(45, 80, 22, 0.05) !important;
+}
+
+.admin-main-content {
+  margin-left: 0;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .admin-main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .admin-main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.stats-card-hover {
+  transition: all 0.3s ease;
+}
+
+.stats-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Dashboard Responsive Typography */
+.dashboard-title {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-title {
+    font-size: 1.75rem;
+  }
+}
+
+.small-md-normal {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .small-md-normal {
+    font-size: 1rem;
+  }
+}
+
+/* Stats Card Responsive */
+.stats-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.stats-icon-svg {
+  font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+  .stats-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .stats-icon-svg {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .stats-icon {
+    width: 56px;
+    height: 56px;
+  }
+  .stats-icon-svg {
+    font-size: 1.5rem;
+  }
+}
+
+.stats-value {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .stats-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .stats-value {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .stats-value {
+    font-size: 2rem;
+  }
+}
+
+.stats-title {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .stats-title {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .stats-title {
+    font-size: 0.95rem;
+  }
+}
+
+.stats-subtitle {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 576px) {
+  .stats-subtitle {
+    font-size: 0.75rem;
+  }
+}
+
+/* Chart Section */
+.chart-title {
+  font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+  .chart-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-title {
+    font-size: 1.25rem;
+  }
+}
+
+.chart-container {
+  min-height: 200px;
+}
+
+@media (min-width: 576px) {
+  .chart-container {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .chart-container {
+    min-height: 320px;
+  }
+}
+
+.chart-placeholder {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .chart-placeholder {
+    font-size: 0.875rem;
+  }
+}
+
+/* Activity Section */
+.activity-title {
+  font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+  .activity-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .activity-title {
+    font-size: 1.25rem;
+  }
+}
+
+.activity-text {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .activity-text {
+    font-size: 0.8rem;
+  }
+}
+
+.activity-time {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 576px) {
+  .activity-time {
+    font-size: 0.75rem;
+  }
+}
+
+/* Admin Navbar */
+.admin-navbar-title {
+  font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+  .admin-navbar-title {
+    font-size: 1.1rem;
+  }
+}
+
+.admin-bell-icon {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 576px) {
+  .admin-bell-icon {
+    font-size: 1.25rem;
+  }
+}
+
+.admin-badge {
+  font-size: 0.6rem;
+  padding: 0.2em 0.4em;
+}
+
+@media (min-width: 576px) {
+  .admin-badge {
+    font-size: 0.65rem;
+  }
+}
+
+.admin-user-icon {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .admin-user-icon {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .admin-user-icon {
+    font-size: 2rem;
+  }
+}
+
+.admin-user-name {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .admin-user-name {
+    font-size: 0.875rem;
+  }
+}
+
+.admin-user-email {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .admin-user-email {
+    font-size: 0.75rem;
+  }
+}
+
+/* Admin Toggle Button */
+.admin-toggle-btn {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(45, 80, 22, 0.2);
+}
+
+.admin-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(45, 80, 22, 0.4);
+  background-color: #1f3a0f !important;
+}
+
+/* Sidebar Logo and Close Button */
+.sidebar-logo {
+  height: 26px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .sidebar-logo {
+    height: 28px;
+  }
+}
+
+.sidebar-brand-text {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .sidebar-brand-text {
+    font-size: 1.25rem;
+  }
+}
+
+.sidebar-logo-container {
+  padding-right: 40px; /* Space for close button on mobile */
+}
+
+@media (min-width: 992px) {
+  .sidebar-logo-container {
+    padding-right: 0; /* No padding needed on desktop */
+  }
+}
+
+.sidebar-close-btn {
+  transition: all 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  transform: scale(1.1);
+}
+
+.sidebar-subtitle {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .sidebar-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+/* Admin Navbar Content - Prevent overlap with toggle */
+.admin-navbar-content {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 991.98px) {
+  .admin-navbar-content {
+    margin-left: 52px;
+    padding-left: 0;
+  }
+}
+
+/* Projects Page */
+.projects-title {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .projects-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-title {
+    font-size: 1.75rem;
+  }
+}
+
+.add-project-btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.add-project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+  background-color: #1f3a0f !important;
+}
+
+.add-project-icon {
+  font-size: 0.75rem;
+}
+
+.add-project-text {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 576px) {
+  .add-project-btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+  .add-project-icon {
+    font-size: 0.875rem;
+  }
+  .add-project-text {
+    font-size: 0.875rem;
+  }
+}
+
+.btn-md-normal {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 576px) {
+  .btn-md-normal {
+    font-size: 1rem;
+  }
+}
+
+/* Project Cards */
+.project-card-hover {
+  transition: all 0.3s ease;
+}
+
+.project-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12) !important;
+}
+
+.project-card-title {
+  font-size: 0.95rem;
+}
+
+@media (min-width: 576px) {
+  .project-card-title {
+    font-size: 1.1rem;
+  }
+}
+
+.project-status-badge {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 576px) {
+  .project-status-badge {
+    font-size: 0.75rem;
+  }
+}
+
+.project-action-btn {
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.project-action-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Projects Table */
+.projects-table-title {
+  font-size: 1rem;
+}
+
+@media (min-width: 576px) {
+  .projects-table-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-table-title {
+    font-size: 1.25rem;
+  }
+}
+
+.projects-table-th {
+  font-size: 0.75rem;
+  padding: 0.75rem 0.5rem !important;
+}
+
+@media (min-width: 576px) {
+  .projects-table-th {
+    font-size: 0.8rem;
+    padding: 0.75rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-table-th {
+    font-size: 0.875rem;
+    padding: 1rem !important;
+  }
+}
+
+.projects-table-td {
+  font-size: 0.75rem;
+  padding: 0.75rem 0.5rem !important;
+}
+
+@media (min-width: 576px) {
+  .projects-table-td {
+    font-size: 0.8rem;
+    padding: 0.75rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-table-td {
+    font-size: 0.875rem;
+    padding: 1rem !important;
+  }
+}
+
+.project-table-btn {
+  font-size: 0.7rem;
+  padding: 0.35rem 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.project-table-btn:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 576px) {
+  .project-table-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* Mobile First - Extra Small Devices (phones, 320px and up) */
+@media (max-width: 575.98px) {
+  .rounded-md-4 {
+    border-radius: 0.75rem !important;
   }
 }
