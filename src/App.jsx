@@ -12,6 +12,8 @@ import AdminProjects from './pages/admin/Projects';
 import AdminProfile from './pages/admin/Profile';
 import NavbarFooterContent from './pages/admin/NavbarFooterContent';
 import Settings from './pages/admin/Settings';
+import HeroSection from './pages/admin/HeroSection';
+import AboutUs from './pages/admin/AboutUs';
 
 function App() {
   useEffect(() => {
@@ -35,7 +37,9 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
+          {/* <Route index element={<AdminDashboard />} /> */}
+          <Route path="hero-section" element={<HeroSection />} />
+          <Route path="about-us" element={<AboutUs />} />
           <Route path="projects" element={<AdminProjects />} />
           <Route path="projects/add" element={<AdminProjects />} />
           <Route path="navbar-footer" element={<NavbarFooterContent />} />

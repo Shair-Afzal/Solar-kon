@@ -33,11 +33,6 @@ function NavbarFooterContent() {
     'SOLARKON is a leading provider of solar energy solutions, helping homeowners, businesses, and communities transition to clean, renewable power.'
   );
 
-  const addNavbarItem = () => {
-    const newId = Math.max(...navbarItems.map((i) => i.id), 0) + 1;
-    setNavbarItems([...navbarItems, { id: newId, label: 'New Item', path: '/' }]);
-  };
-
   const removeNavbarItem = (id) => {
     setNavbarItems(navbarItems.filter((item) => item.id !== id));
   };
@@ -110,7 +105,7 @@ function NavbarFooterContent() {
           height: '5px',
           background: 'linear-gradient(90deg, #2D5016 0%, #22C55E 100%)'
         }}></div>
-        <div className="d-flex align-items-center justify-content-between mb-4 mb-sm-5">
+        <div className="mb-4 mb-sm-5">
           <h3 className="fw-bold mb-0 chart-title" style={{ 
             color: '#1e293b',
             fontSize: '1.5rem',
@@ -126,31 +121,6 @@ function NavbarFooterContent() {
             }}></span>
             Navbar Menu Items
           </h3>
-          <button
-            className="btn btn-pill d-inline-flex align-items-center gap-2 admin-btn-primary"
-            style={{ 
-            background: '#2D5016',
-            color: '#ffffff',
-            border: 'none',
-            fontWeight: 600,
-            boxShadow: '0 4px 16px rgba(45, 80, 22, 0.3)',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#22C55E';
-            e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = '0 8px 24px rgba(34, 197, 94, 0.4)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = '#2D5016';
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(45, 80, 22, 0.3)';
-          }}
-            onClick={addNavbarItem}
-          >
-            <FontAwesomeIcon icon={faPlus} />
-            Add Item
-          </button>
         </div>
 
         <div className="row g-3 g-sm-4">
@@ -160,49 +130,26 @@ function NavbarFooterContent() {
                 className="p-3 p-sm-4 rounded-3 border admin-content-item d-flex align-items-center justify-content-between"
                 style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb' }}
               >
-                <div className="flex-grow-1 me-3">
-                  <div className="mb-2" style={{ position: 'relative' }}>
-                    <div style={{
-                      position: 'absolute',
-                      left: '12px',
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      color: '#94a3b8',
-                      zIndex: 2,
-                      pointerEvents: 'none',
-                      fontSize: '0.85rem'
-                    }}>
-                      <FontAwesomeIcon icon={faHeading} />
-                    </div>
-                    <input
-                      type="text"
-                      className="form-control form-control-sm rounded-3 admin-form-input"
-                      defaultValue={item.label}
-                      placeholder="Menu Label"
-                      style={{ paddingLeft: '36px', paddingRight: '12px', paddingTop: '10px', paddingBottom: '10px', fontSize: '0.875rem', border: '2px solid #e2e8f0' }}
-                    />
+                <div className="flex-grow-1 me-3" style={{ position: 'relative' }}>
+                  <div style={{
+                    position: 'absolute',
+                    left: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#94a3b8',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                    fontSize: '0.85rem'
+                  }}>
+                    <FontAwesomeIcon icon={faHeading} />
                   </div>
-                  <div style={{ position: 'relative' }}>
-                    <div style={{
-                      position: 'absolute',
-                      left: '12px',
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      color: '#94a3b8',
-                      zIndex: 2,
-                      pointerEvents: 'none',
-                      fontSize: '0.85rem'
-                    }}>
-                      <FontAwesomeIcon icon={faLink} />
-                    </div>
-                    <input
-                      type="text"
-                      className="form-control form-control-sm rounded-3 admin-form-input"
-                      defaultValue={item.path}
-                      placeholder="/path"
-                      style={{ paddingLeft: '36px', paddingRight: '12px', paddingTop: '10px', paddingBottom: '10px', fontSize: '0.875rem', border: '2px solid #e2e8f0' }}
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    className="form-control form-control-sm rounded-3 admin-form-input"
+                    defaultValue={item.label}
+                    placeholder="Menu Label"
+                    style={{ paddingLeft: '36px', paddingRight: '12px', paddingTop: '10px', paddingBottom: '10px', fontSize: '0.875rem', border: '2px solid #e2e8f0' }}
+                  />
                 </div>
                 <button
                   className="btn btn-sm rounded-pill project-action-btn-enhanced"

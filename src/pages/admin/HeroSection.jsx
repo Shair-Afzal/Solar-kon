@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolderOpen, faHeading, faFileAlt, faMapMarkerAlt, faCalendarAlt, faImage, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faTag, faHeading, faFileAlt, faMousePointer, faChartLine, faImage, faVideo, faSave } from '@fortawesome/free-solid-svg-icons';
 
-function Projects() {
+function HeroSection() {
   const [formData, setFormData] = useState({
-    category: '',
-    title: '',
-    description: '',
-    location: '',
-    date: '',
-    image: ''
+    badge: 'New Energy For Our System',
+    titleLine1: 'Clean Renewable',
+    titleLine2: 'Limitless Energy',
+    description: 'Switch to solar with SOLARKON and experience cost savings, energy independence, and a greener future with a system tailored to your needs.',
+    buttonText: 'Get Free Consultation',
+    heroImage: '',
+    videoThumbnail: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80',
+    videoDescription: 'Unlock the power of solar energy and enjoy long-term advantages.',
+    stats: [
+      { label: 'Solar Installations', value: '10k+', target: 10000 },
+      { label: 'Tons of CO2 Reduced', value: '100k', target: 100000 },
+      { label: 'Up to Savings', value: '70%', target: 70 },
+    ]
   });
 
   const handleChange = (e) => {
@@ -20,20 +27,19 @@ function Projects() {
     }));
   };
 
+  const handleStatChange = (index, field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      stats: prev.stats.map((stat, i) => 
+        i === index ? { ...stat, [field]: field === 'target' ? parseInt(value) || 0 : value } : stat
+      )
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Project data:', formData);
-    alert('Project added successfully!');
-    // Reset form
-    setFormData({
-      category: '',
-      title: '',
-      description: '',
-      location: '',
-      date: '',
-      image: ''
-    });
+    console.log('Hero Section data:', formData);
+    alert('Hero Section updated successfully!');
   };
 
   return (
@@ -55,10 +61,10 @@ function Projects() {
             fontWeight: 800,
             letterSpacing: '-0.02em'
           }}>
-            Add New Project
+            Hero Section Management
           </h2>
           <p className="mb-0 small small-md-normal" style={{ color: '#64748b', fontSize: '1.05rem', fontWeight: 500 }}>
-            Fill in the details to add a new solar installation project
+            Manage the hero section content for your home page
           </p>
         </div>
       </div>
@@ -86,11 +92,11 @@ function Projects() {
         <div className="card-body p-3 p-sm-4 p-md-5">
           <form onSubmit={handleSubmit}>
             <div className="row g-4">
-              {/* Category Field */}
-              <div className="col-12 col-md-6 fade-up fade-delay-2">
+              {/* Badge Field */}
+              <div className="col-12 fade-up fade-delay-2">
                 <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <FontAwesomeIcon icon={faFolderOpen} style={{ color: '#22C55E', fontSize: '1rem' }} />
-                  Category
+                  <FontAwesomeIcon icon={faTag} style={{ color: '#22C55E', fontSize: '1rem' }} />
+                  Badge Text
                 </label>
                 <div className="admin-input-wrapper" style={{ position: 'relative' }}>
                   <div style={{
@@ -102,15 +108,15 @@ function Projects() {
                     zIndex: 2,
                     pointerEvents: 'none'
                   }}>
-                    <FontAwesomeIcon icon={faFolderOpen} />
+                    <FontAwesomeIcon icon={faTag} />
                   </div>
                   <input
                     type="text"
-                    name="category"
-                    value={formData.category}
+                    name="badge"
+                    value={formData.badge}
                     onChange={handleChange}
                     className="form-control rounded-3 admin-form-input"
-                    placeholder="e.g., On-Grid Solutions, Solar + Battery Backup"
+                    placeholder="e.g., New Energy For Our System"
                     style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
                     required
                   />
@@ -118,11 +124,11 @@ function Projects() {
                 </div>
               </div>
 
-              {/* Title Field */}
+              {/* Title Line 1 */}
               <div className="col-12 col-md-6 fade-up fade-delay-2">
                 <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <FontAwesomeIcon icon={faHeading} style={{ color: '#22C55E', fontSize: '1rem' }} />
-                  Project Title
+                  Title Line 1
                 </label>
                 <div className="admin-input-wrapper" style={{ position: 'relative' }}>
                   <div style={{
@@ -138,11 +144,11 @@ function Projects() {
                   </div>
                   <input
                     type="text"
-                    name="title"
-                    value={formData.title}
+                    name="titleLine1"
+                    value={formData.titleLine1}
                     onChange={handleChange}
                     className="form-control rounded-3 admin-form-input"
-                    placeholder="e.g., Green Warehouse Initiative"
+                    placeholder="e.g., Clean Renewable"
                     style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
                     required
                   />
@@ -150,7 +156,39 @@ function Projects() {
                 </div>
               </div>
 
-              {/* Description Field */}
+              {/* Title Line 2 */}
+              <div className="col-12 col-md-6 fade-up fade-delay-2">
+                <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <FontAwesomeIcon icon={faHeading} style={{ color: '#22C55E', fontSize: '1rem' }} />
+                  Title Line 2
+                </label>
+                <div className="admin-input-wrapper" style={{ position: 'relative' }}>
+                  <div style={{
+                    position: 'absolute',
+                    left: '16px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#94a3b8',
+                    zIndex: 2,
+                    pointerEvents: 'none'
+                  }}>
+                    <FontAwesomeIcon icon={faHeading} />
+                  </div>
+                  <input
+                    type="text"
+                    name="titleLine2"
+                    value={formData.titleLine2}
+                    onChange={handleChange}
+                    className="form-control rounded-3 admin-form-input"
+                    placeholder="e.g., Limitless Energy"
+                    style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
+                    required
+                  />
+                  <span className="admin-input-focus-line"></span>
+                </div>
+              </div>
+
+              {/* Description */}
               <div className="col-12 fade-up fade-delay-3">
                 <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <FontAwesomeIcon icon={faFileAlt} style={{ color: '#22C55E', fontSize: '1rem' }} />
@@ -172,8 +210,8 @@ function Projects() {
                     value={formData.description}
                     onChange={handleChange}
                     className="form-control rounded-3 admin-form-input"
-                    rows="4"
-                    placeholder="Describe the project in detail..."
+                    rows="3"
+                    placeholder="Enter description..."
                     style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0', resize: 'vertical' }}
                     required
                   />
@@ -181,11 +219,11 @@ function Projects() {
                 </div>
               </div>
 
-              {/* Location Field */}
-              <div className="col-12 col-md-6 fade-up fade-delay-4">
+              {/* Button Text */}
+              <div className="col-12 col-md-6 fade-up fade-delay-3">
                 <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: '#22C55E', fontSize: '1rem' }} />
-                  Location
+                  <FontAwesomeIcon icon={faMousePointer} style={{ color: '#22C55E', fontSize: '1rem' }} />
+                  Button Text
                 </label>
                 <div className="admin-input-wrapper" style={{ position: 'relative' }}>
                   <div style={{
@@ -197,15 +235,15 @@ function Projects() {
                     zIndex: 2,
                     pointerEvents: 'none'
                   }}>
-                    <FontAwesomeIcon icon={faMapMarkerAlt} />
+                    <FontAwesomeIcon icon={faMousePointer} />
                   </div>
                   <input
                     type="text"
-                    name="location"
-                    value={formData.location}
+                    name="buttonText"
+                    value={formData.buttonText}
                     onChange={handleChange}
                     className="form-control rounded-3 admin-form-input"
-                    placeholder="e.g., Dallas, Texas"
+                    placeholder="e.g., Get Free Consultation"
                     style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
                     required
                   />
@@ -213,43 +251,11 @@ function Projects() {
                 </div>
               </div>
 
-              {/* Date Field */}
+              {/* Hero Image */}
               <div className="col-12 col-md-6 fade-up fade-delay-4">
-                <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <FontAwesomeIcon icon={faCalendarAlt} style={{ color: '#22C55E', fontSize: '1rem' }} />
-                  Date
-                </label>
-                <div className="admin-input-wrapper" style={{ position: 'relative' }}>
-                  <div style={{
-                    position: 'absolute',
-                    left: '16px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    color: '#94a3b8',
-                    zIndex: 2,
-                    pointerEvents: 'none'
-                  }}>
-                    <FontAwesomeIcon icon={faCalendarAlt} />
-                  </div>
-                  <input
-                    type="text"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="form-control rounded-3 admin-form-input"
-                    placeholder="e.g., June 2024"
-                    style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
-                    required
-                  />
-                  <span className="admin-input-focus-line"></span>
-                </div>
-              </div>
-
-              {/* Image URL Field */}
-              <div className="col-12 fade-up fade-delay-5">
                 <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <FontAwesomeIcon icon={faImage} style={{ color: '#22C55E', fontSize: '1rem' }} />
-                  Image URL
+                  Hero Image URL
                 </label>
                 <div className="admin-input-wrapper" style={{ position: 'relative' }}>
                   <div style={{
@@ -265,60 +271,136 @@ function Projects() {
                   </div>
                   <input
                     type="url"
-                    name="image"
-                    value={formData.image}
+                    name="heroImage"
+                    value={formData.heroImage}
                     onChange={handleChange}
                     className="form-control rounded-3 admin-form-input"
-                    placeholder="https://images.unsplash.com/photo-..."
+                    placeholder="https://images.unsplash.com/..."
+                    style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
+                  />
+                  <span className="admin-input-focus-line"></span>
+                </div>
+              </div>
+
+              {/* Video Thumbnail */}
+              <div className="col-12 col-md-6 fade-up fade-delay-4">
+                <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <FontAwesomeIcon icon={faVideo} style={{ color: '#22C55E', fontSize: '1rem' }} />
+                  Video Thumbnail URL
+                </label>
+                <div className="admin-input-wrapper" style={{ position: 'relative' }}>
+                  <div style={{
+                    position: 'absolute',
+                    left: '16px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#94a3b8',
+                    zIndex: 2,
+                    pointerEvents: 'none'
+                  }}>
+                    <FontAwesomeIcon icon={faVideo} />
+                  </div>
+                  <input
+                    type="url"
+                    name="videoThumbnail"
+                    value={formData.videoThumbnail}
+                    onChange={handleChange}
+                    className="form-control rounded-3 admin-form-input"
+                    placeholder="https://images.unsplash.com/..."
                     style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
                     required
                   />
                   <span className="admin-input-focus-line"></span>
                 </div>
-                {formData.image && (
-                  <div className="mt-3">
-                    <img 
-                      src={formData.image} 
-                      alt="Preview" 
-                      style={{ 
-                        maxWidth: '100%', 
-                        height: '200px', 
-                        objectFit: 'cover', 
-                        borderRadius: '12px',
-                        border: '2px solid #e2e8f0'
-                      }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
+              </div>
+
+              {/* Video Description */}
+              <div className="col-12 col-md-6 fade-up fade-delay-4">
+                <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <FontAwesomeIcon icon={faFileAlt} style={{ color: '#22C55E', fontSize: '1rem' }} />
+                  Video Description
+                </label>
+                <div className="admin-input-wrapper" style={{ position: 'relative' }}>
+                  <div style={{
+                    position: 'absolute',
+                    left: '16px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#94a3b8',
+                    zIndex: 2,
+                    pointerEvents: 'none'
+                  }}>
+                    <FontAwesomeIcon icon={faFileAlt} />
                   </div>
-                )}
+                  <input
+                    type="text"
+                    name="videoDescription"
+                    value={formData.videoDescription}
+                    onChange={handleChange}
+                    className="form-control rounded-3 admin-form-input"
+                    placeholder="e.g., Unlock the power of solar energy..."
+                    style={{ paddingLeft: '48px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px', fontSize: '0.95rem', border: '2px solid #e2e8f0' }}
+                    required
+                  />
+                  <span className="admin-input-focus-line"></span>
+                </div>
+              </div>
+
+              {/* Stats Section */}
+              <div className="col-12 fade-up fade-delay-5">
+                <label className="form-label fw-semibold mb-3 admin-form-label" style={{ color: '#1e293b', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <FontAwesomeIcon icon={faChartLine} style={{ color: '#22C55E', fontSize: '1rem' }} />
+                  Statistics
+                </label>
+                <div className="row g-3">
+                  {formData.stats.map((stat, index) => (
+                    <div key={index} className="col-12 col-md-4">
+                      <div className="p-3 rounded-3 border" style={{ backgroundColor: '#f8faf9', borderColor: '#e2e8f0' }}>
+                        <div className="mb-2">
+                          <label className="small fw-semibold text-muted mb-1">Label</label>
+                          <input
+                            type="text"
+                            className="form-control form-control-sm rounded-3"
+                            value={stat.label}
+                            onChange={(e) => handleStatChange(index, 'label', e.target.value)}
+                            placeholder="Stat label"
+                            style={{ border: '2px solid #e2e8f0' }}
+                            required
+                          />
+                        </div>
+                        <div className="mb-2">
+                          <label className="small fw-semibold text-muted mb-1">Value</label>
+                          <input
+                            type="text"
+                            className="form-control form-control-sm rounded-3"
+                            value={stat.value}
+                            onChange={(e) => handleStatChange(index, 'value', e.target.value)}
+                            placeholder="e.g., 10k+, 100k, 70%"
+                            style={{ border: '2px solid #e2e8f0' }}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="small fw-semibold text-muted mb-1">Target (for animation)</label>
+                          <input
+                            type="number"
+                            className="form-control form-control-sm rounded-3"
+                            value={stat.target}
+                            onChange={(e) => handleStatChange(index, 'target', e.target.value)}
+                            placeholder="e.g., 10000"
+                            style={{ border: '2px solid #e2e8f0' }}
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Submit Button */}
               <div className="col-12 fade-up fade-delay-6">
-                <div className="d-flex justify-content-end gap-3">
-                  <button
-                    type="button"
-                    className="btn btn-pill px-4"
-                    style={{ 
-                      backgroundColor: '#f3f4f6',
-                      color: '#374151',
-                      border: 'none',
-                      fontWeight: 600,
-                      transition: 'all 0.3s ease'
-                    }}
-                    onClick={() => setFormData({
-                      category: '',
-                      title: '',
-                      description: '',
-                      location: '',
-                      date: '',
-                      image: ''
-                    })}
-                  >
-                    Reset
-                  </button>
+                <div className="d-flex justify-content-end">
                   <button
                     type="submit"
                     className="btn btn-pill px-5 admin-btn-primary d-inline-flex align-items-center gap-2"
@@ -342,7 +424,7 @@ function Projects() {
                     }}
                   >
                     <FontAwesomeIcon icon={faSave} />
-                    Add Project
+                    Save Hero Section
                   </button>
                 </div>
               </div>
@@ -354,4 +436,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default HeroSection;
