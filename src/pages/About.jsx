@@ -3,9 +3,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AboutHero from '../components/About/AboutHero';
 import MissionSection from '../components/About/MissionSection';
-import ValuesSection from '../components/About/ValuesSection';
+import VisionValuesSection from '../components/About/VisionValuesSection';
+import WhyChooseSolarkonSection from '../components/About/WhyChooseSolarkonSection';
+import CertificationsSection from '../components/About/CertificationsSection';
 import TeamSection from '../components/About/TeamSection';
-import WhyChooseUs from '../components/About/WhyChooseUs';
 
 function About() {
   return (
@@ -14,9 +15,10 @@ function About() {
       <main className="flex-grow-1">
         <AboutHero />
         <MissionSection />
-        <ValuesSection />
+        <VisionValuesSection />
+        <WhyChooseSolarkonSection />
+        <CertificationsSection />
         <TeamSection />
-        <WhyChooseUs />
       </main>
       <Footer />
     </div>

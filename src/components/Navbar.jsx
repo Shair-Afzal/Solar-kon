@@ -14,11 +14,13 @@ function Navbar() {
   const navLinks = [
     { label: "Home", to: "/" },
     { label: "About Us", to: "/about" },
-    { label: "Project", to: "/profile" },
+    { label: "Solutions", to: "/solutions" },
+    { label: "Projects", to: "/projects" },
+    { label: "Financing", to: "/financing" },
   ];
 
   return (
-    <header className="position-sticky top-0 z-5" style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem' }}>
+    <header className="position-relative" style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem', zIndex: 1000 }}>
       <nav className="container">
         <div className="glass-nav d-flex align-items-center justify-content-between gap-3">
           <div className="d-flex align-items-center gap-2 flex-shrink-0">

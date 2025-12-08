@@ -1,89 +1,70 @@
-import { HiPlay, HiArrowRight } from 'react-icons/hi2';
-import { motion, useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { HiArrowRight, HiCurrencyDollar, HiCreditCard, HiBuildingLibrary, HiDocumentText } from 'react-icons/hi2';
+import { motion } from 'framer-motion';
 import heroImage from '../assets/images/solarimg-1.jpg';
 
-// Counter Hook for animated numbers
-function useCounter(targetValue, duration = 1500, startImmediately = false) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-50px' });
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const shouldStart = startImmediately || (inView && !hasAnimated.current);
-    
-    if (shouldStart && !hasAnimated.current) {
-      hasAnimated.current = true;
-      let startTime = null;
-      const startValue = 0;
-      const endValue = targetValue;
-
-      const animate = (currentTime) => {
-        if (startTime === null) startTime = currentTime;
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-        
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const current = Math.floor(startValue + (endValue - startValue) * easeOutQuart);
-        
-        setCount(current);
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          setCount(endValue);
-        }
-      };
-
-      // Small delay for hero section to ensure smooth start
-      setTimeout(() => {
-        requestAnimationFrame(animate);
-      }, startImmediately ? 300 : 0);
-    }
-  }, [inView, targetValue, duration, startImmediately]);
-
-  return [count, ref];
-}
-
 function HeroSection() {
-  const heroVideoThumb =
-    'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80';
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const stats = [
-    { label: 'Solar Installations', value: '10k+', target: 10000 },
-    { label: 'Tons of CO2 Reduced', value: '100k', target: 100000 },
-    { label: 'Up to Savings', value: '70%', target: 70 },
+  const sliderImages = [
+    'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=80',
+    'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1000&q=80',
+    'https://images.unsplash.com/photo-1509395283749-8d6f0c7e1d0b?auto=format&fit=crop&w=1000&q=80',
   ];
 
-  const [installationsCount, installationsRef] = useCounter(10000, 1500, true);
-  const [co2Count, co2Ref] = useCounter(100000, 1800, true);
-  const [savingsCount, savingsRef] = useCounter(70, 1200, true);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [sliderImages.length]);
 
-  // Format numbers for display
-  const formatNumber = (num, type) => {
-    if (type === 'k+') {
-      return (num / 1000).toFixed(0) + 'k+';
-    } else if (type === 'k') {
-      return (num / 1000).toFixed(0) + 'k';
-    } else if (type === '%') {
-      return num + '%';
-    }
-    return num.toLocaleString();
-  };
+  const financingOptions = [
+    { icon: <HiCurrencyDollar size={24} />, title: 'Self Finance', desc: 'Complete ownership' },
+    { icon: <HiCreditCard size={24} />, title: 'Installment Plan', desc: 'Low upfront cost' },
+    { icon: <HiBuildingLibrary size={24} />, title: 'Bank Financing', desc: 'Structured EMI plans' },
+    { icon: <HiDocumentText size={24} />, title: 'PPA', desc: 'No initial investment' },
+  ];
 
   return (
-    <section id='home' className='section-shell position-relative' data-aos='fade-up'>
-      <div className='container'>
+    <section 
+      id='home' 
+      className='position-relative' 
+      data-aos='fade-up'
+      style={{
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        marginTop: 0,
+        paddingTop: '6rem',
+        paddingBottom: '4rem',
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div 
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{
+          background: 'linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%)',
+          zIndex: 1,
+        }}
+      ></div>
+      
+      <div className='container position-relative' style={{ zIndex: 2 }}>
         <div className='row align-items-center g-4 g-lg-5'>
-          <div className='col-lg-6 text-center text-lg-start order-2 order-lg-1'>
+          <div className='col-lg-6 text-center text-lg-start'>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className='mb-3'
             >
-              <span className='eyebrow hero-badge'>New Energy For Our System</span>
+              <span className='eyebrow hero-badge' style={{ backgroundColor: 'rgba(20, 83, 45, 0.3)', color: '#D1FAE5' }}>
+                Nature Produces & We Deliver Solar System
+              </span>
             </motion.div>
 
             <motion.h1
@@ -91,107 +72,105 @@ function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.1 }}
               className='fw-bold lh-sm mb-3 section-title'
-              style={{ fontSize: 'clamp(2.5rem, 4vw, 3.4rem)' }}
+              style={{ fontSize: 'clamp(2.5rem, 4vw, 3.4rem)', color: '#ffffff' }}
             >
-              <span className='d-block text-dark'>Clean Renewable</span>
-              <span style={{ color: '#22C55E' }}>Limitless Energy</span>
+              Powering a Brighter, Greener Pakistan
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className='text-muted mb-4'
+              className='mb-4'
+              style={{ color: '#E5F2E0', fontSize: '1.1rem', lineHeight: 1.8 }}
             >
-              Switch to solar with SOLARKON and experience cost savings, energy independence, and a
-              greener future with a system tailored to your needs.
+              Solarkon Private Limited is a premier solar energy solutions provider in Pakistan, known for delivering high-performance systems tailored to residential, commercial, industrial, and agricultural needs.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className='mb-4'
+            >
+              <div className='d-inline-flex align-items-center gap-2 p-3 rounded-3' style={{ backgroundColor: 'rgba(20, 83, 45, 0.3)', border: '1px solid rgba(22, 101, 52, 0.4)' }}>
+                <span className='fw-bold' style={{ color: '#D1FAE5', fontSize: '1.2rem' }}>150MW</span>
+                <span style={{ color: '#E5F2E0' }}>Pakistan's Largest Solar Project</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25 }}
               className='d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start'
             >
-              <button className='btn btn-lg btn-pill btn-primary d-inline-flex align-items-center justify-content-center gap-2 btn-soft-hover'>
+              <button 
+                className='btn btn-lg btn-pill d-inline-flex align-items-center justify-content-center gap-2 btn-soft-hover'
+                style={{ background: 'linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%)', color: '#ffffff', fontWeight: 600, border: 'none' }}
+              >
                 Get Free Consultation
                 <HiArrowRight size={20} />
               </button>
             </motion.div>
-
-            <div className='d-flex flex-wrap gap-3 mt-4 justify-content-center justify-content-lg-start'>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25 }}
-                className='stat-card text-start'
-                ref={installationsRef}
-              >
-                <div className='fw-bold' style={{ fontSize: '1.8rem', color: '#22C55E' }}>
-                  {formatNumber(installationsCount, 'k+')}
-                </div>
-                <div className='text-muted small text-uppercase'>{stats[0].label}</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className='stat-card text-start'
-                ref={co2Ref}
-              >
-                <div className='fw-bold' style={{ fontSize: '1.8rem', color: '#22C55E' }}>
-                  {formatNumber(co2Count, 'k')}
-                </div>
-                <div className='text-muted small text-uppercase'>{stats[1].label}</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className='stat-card text-start'
-                ref={savingsRef}
-              >
-                <div className='fw-bold' style={{ fontSize: '1.8rem', color: '#22C55E' }}>
-                  {formatNumber(savingsCount, '%')}
-                </div>
-                <div className='text-muted small text-uppercase'>{stats[2].label}</div>
-              </motion.div>
-            </div>
           </div>
 
-          <div className='col-lg-6 order-1 order-lg-2'>
+          <div className='col-lg-6'>
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9 }}
-              className='position-relative hero-visual tilt-float'
-              style={{ backgroundImage: `url(${heroImage})` }}
             >
-              <div className='position-absolute bottom-0 start-0 end-0 p-3 p-md-4'>
-                <div className='bg-white rounded-4 shadow p-3 p-md-4'>
-                  <div
-                    className='rounded-3 position-relative mb-3 gradient-mask'
-                    style={{
-                      height: 140,
-                      backgroundImage: `url(${heroVideoThumb})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                  >
-                    <div className='position-absolute top-50 start-50 translate-middle'>
-                      <div
-                        className='d-flex align-items-center justify-content-center rounded-circle shadow icon-badge-hover bg-white'
-                        style={{ width: 64, height: 64 }}
-                      >
-                        <HiPlay size={32} color='#22C55E' style={{ marginLeft: 4 }} />
+              <div className='surface-card rounded-4 p-4' style={{ backgroundColor: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(10px)' }}>
+                <h3 className='fw-bold mb-3' style={{ color: '#14532d', fontSize: '1.3rem' }}>
+                  Flexible Financing Options
+                </h3>
+                <div className='row g-3 mb-4'>
+                  {financingOptions.map((option, index) => (
+                    <div key={index} className='col-6'>
+                      <div className='d-flex align-items-center gap-2 p-2 rounded-3' style={{ backgroundColor: 'rgba(20, 83, 45, 0.1)', border: '1px solid rgba(20, 83, 45, 0.2)' }}>
+                        <div style={{ color: '#166534' }}>{option.icon}</div>
+                        <div>
+                          <div className='fw-semibold small' style={{ color: '#14532d' }}>{option.title}</div>
+                          <div className='text-muted' style={{ fontSize: '0.75rem', color: '#64748b' }}>{option.desc}</div>
+                        </div>
                       </div>
                     </div>
+                  ))}
+                </div>
+
+                {/* Image Slider */}
+                <div className='position-relative rounded-3 overflow-hidden' style={{ height: '200px' }}>
+                  {sliderImages.map((img, index) => (
+                    <div
+                      key={index}
+                      className='position-absolute top-0 start-0 w-100 h-100'
+                      style={{
+                        backgroundImage: `url(${img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        opacity: currentSlide === index ? 1 : 0,
+                        transition: 'opacity 0.8s ease-in-out',
+                        zIndex: currentSlide === index ? 1 : 0,
+                      }}
+                    />
+                  ))}
+                  {/* Slider Indicators */}
+                  <div className='position-absolute bottom-0 start-50 translate-middle-x d-flex gap-2 mb-2' style={{ zIndex: 2 }}>
+                    {sliderImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className='border-0 rounded-circle'
+                        style={{
+                          width: '8px',
+                          height: '8px',
+                          backgroundColor: currentSlide === index ? '#166534' : 'rgba(255,255,255,0.5)',
+                          cursor: 'pointer',
+                        }}
+                      />
+                    ))}
                   </div>
-                  <p className='mb-0 text-muted small'>
-                    Unlock the power of solar energy and enjoy long-term advantages.
-                  </p>
                 </div>
               </div>
             </motion.div>
@@ -203,4 +182,3 @@ function HeroSection() {
 }
 
 export default HeroSection;
-

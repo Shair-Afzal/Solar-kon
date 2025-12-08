@@ -2,13 +2,10 @@
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import StatisticsSection from '../components/StatisticsSection';
-import ClientLogosSection from '../components/ClientLogosSection';
-import BenefitsSection from '../components/BenefitsSection';
-import ServicesSection from '../components/ServicesSection';
-import TestimonialsSection from '../components/TestimonialsSection';
 import StepsSection from '../components/StepsSection';
-import FAQSection from '../components/FAQSection';
-import BlogSection from '../components/BlogSection';
+import ProjectHighlights from '../components/ProjectHighlights';
+import ClientLogosSection from '../components/ClientLogosSection';
+import TestimonialsSection from '../components/TestimonialsSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 
@@ -19,13 +16,10 @@ function Home() {
       <main className="flex-grow-1">
         <HeroSection />
         <StatisticsSection />
-        <ClientLogosSection />
-        <BenefitsSection />
-        <ServicesSection />
-        <TestimonialsSection />
         <StepsSection />
-        <FAQSection />
-        <BlogSection />
+        <ProjectHighlights />
+        <ClientLogosSection />
+        <TestimonialsSection />
         <CTASection />
       </main>
       <Footer />

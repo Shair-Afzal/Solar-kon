@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import Home from './pages/Home';
 import About from './pages/About';
+import Solutions from './pages/Solutions';
+import Projects from './pages/Projects';
+import Financing from './pages/Financing';
 import ProjectDetails from './pages/ProjectDetails';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
@@ -33,6 +36,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/financing" element={<Financing />} />
         <Route path="/project" element={<ProjectDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
