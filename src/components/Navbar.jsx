@@ -22,20 +22,33 @@ function Navbar() {
   return (
     <header className="position-relative" style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem', zIndex: 1000 }}>
       <nav className="container">
-        <div className="glass-nav d-flex align-items-center justify-content-between gap-3">
-          <div className="d-flex align-items-center gap-2 flex-shrink-0">
+        <div className="glass-nav d-flex align-items-center justify-content-between" style={{ gap: 'clamp(0.5rem, 2vw, 1.5rem)' }}>
+          <div className="d-flex align-items-center gap-2 flex-shrink-0" style={{ minWidth: 0 }}>
             <img
               src={webLogo}
               alt="SOLARKON logo"
               className="logo-mark"
-              style={{ height: 35, width: 'auto' }}
+              style={{ 
+                height: 'clamp(28px, 3vw, 35px)', 
+                width: 'auto',
+                flexShrink: 0
+              }}
             />
-            <span className="fw-bold" style={{ color: "#2D5016", fontSize: '1.5rem' }}>
+            <span 
+              className="fw-bold d-none d-sm-inline" 
+              style={{ 
+                color: "#14532d", 
+                fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}
+            >
               SOLARKON
             </span>
           </div>
 
-          <div className="d-none d-md-flex align-items-center gap-4">
+          <div className="d-none d-lg-flex align-items-center" style={{ gap: 'clamp(1rem, 2vw, 2rem)', flexWrap: 'nowrap' }}>
             {navLinks.map((item) => (
               <NavLink
                 key={item.to}
@@ -45,28 +58,42 @@ function Navbar() {
                     isActive ? "text-success" : "text-dark"
                   }`
                 }
+                style={{ 
+                  fontSize: 'clamp(0.875rem, 1.2vw, 1rem)',
+                  whiteSpace: 'nowrap'
+                }}
               >
                 {item.label}
               </NavLink>
             ))}
           </div>
 
-          <div className="d-none d-md-inline-flex">
+          <div className="d-none d-lg-inline-flex flex-shrink-0">
             <button
               className="btn btn-outline-success btn-pill btn-soft-hover btn-contact"
               type="button"
               onClick={() => navigate("/contact")}
+              style={{
+                fontSize: 'clamp(0.875rem, 1.2vw, 1rem)',
+                padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem)'
+              }}
             >
               <HiPhone className="me-2" size={18} />
-              Contact Us
+              <span className="d-none d-xl-inline">Contact Us</span>
+              <span className="d-xl-none">Contact</span>
             </button>
           </div>
 
           <button
-            className="btn btn-outline-success d-inline-flex d-md-none align-items-center justify-content-center btn-soft-hover nav-toggle"
+            className="btn btn-outline-success d-inline-flex d-lg-none align-items-center justify-content-center btn-soft-hover nav-toggle flex-shrink-0"
             onClick={handleToggle}
             aria-expanded={isOpen}
             aria-label="Toggle navigation"
+            style={{
+              minWidth: '44px',
+              minHeight: '44px',
+              padding: '0.5rem'
+            }}
           >
             <svg
               width="24"
@@ -98,7 +125,8 @@ function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="mt-3 d-md-none border rounded-4 p-3 bg-white shadow-sm"
+              className="mt-3 d-lg-none border rounded-4 p-3 bg-white shadow-sm"
+              style={{ maxHeight: '80vh', overflowY: 'auto' }}
             >
               <div className="d-flex flex-column gap-3">
                 {navLinks.map((item) => (
@@ -106,21 +134,26 @@ function Navbar() {
                     key={item.to}
                     to={item.to}
                     className={({ isActive }) =>
-                      `fw-semibold text-decoration-none ${
+                      `fw-semibold text-decoration-none py-2 ${
                         isActive ? "text-success" : "text-dark"
                       }`
                     }
                     onClick={closeMenu}
+                    style={{ fontSize: '1rem' }}
                   >
                     {item.label}
                   </NavLink>
                 ))}
 
                 <button
-                  className="btn btn-success rounded-pill btn-contact-solid"
+                  className="btn btn-success rounded-pill btn-contact-solid w-100"
                   onClick={() => {
                     closeMenu();
                     navigate("/contact");
+                  }}
+                  style={{ 
+                    padding: '0.75rem 1.5rem',
+                    fontSize: '1rem'
                   }}
                 >
                   <HiPhone className="me-2" size={18} />
