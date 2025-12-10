@@ -1,89 +1,16 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faList, faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 
 function AdminFinancing() {
   const [formData, setFormData] = useState({
     heroTitle: 'Flexible Financing Solutions',
     heroSubtitle: 'Choose the financing option that best fits your needs and budget. We offer multiple ways to make solar energy accessible.',
-    financingOptions: [
-      {
-        title: 'Client Self Finance',
-        description: 'Complete ownership, no interest, max long-term return, full government incentives.',
-        details: [
-          'Full system ownership from day one',
-          'No interest payments',
-          'Maximum long-term return on investment',
-          'Eligible for all government incentives and tax benefits',
-          'Complete control over your solar system',
-        ],
-      },
-      {
-        title: 'Solar on Installment',
-        description: 'Low upfront cost, monthly payments customized to budget, no bank involvement, faster approval.',
-        details: [
-          'Minimal upfront investment required',
-          'Flexible monthly payment plans',
-          'Customized to your budget',
-          'No bank involvement needed',
-          'Fast approval process',
-          'Ownership transfers after final payment',
-        ],
-      },
-      {
-        title: 'Bank-Financed',
-        description: 'Partnered with reputable banks, structured EMI plans, suitable for medium to large setups.',
-        details: [
-          'Partnerships with leading banks',
-          'Structured EMI plans',
-          'Competitive interest rates',
-          'Suitable for medium to large installations',
-          'Flexible repayment terms',
-          'Professional financial guidance',
-        ],
-      },
-      {
-        title: 'Power Purchase Agreement (PPA)',
-        description: 'No initial investment required. Pay only for electricity consumed. System owned/operated by provider. Immediate cost savings.',
-        details: [
-          'Zero upfront investment',
-          'Pay only for electricity you use',
-          'System owned and maintained by provider',
-          'Immediate cost savings',
-          'No maintenance responsibilities',
-          'Flexible contract terms',
-        ],
-      },
-    ],
   });
 
-  const handleChange = (e, section, index = null) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    if (section === 'hero') {
-      setFormData({ ...formData, [name]: value });
-    } else if (section === 'financing' && index !== null) {
-      const updatedOptions = [...formData.financingOptions];
-      updatedOptions[index] = { ...updatedOptions[index], [name]: value };
-      setFormData({ ...formData, financingOptions: updatedOptions });
-    }
-  };
-
-  const handleDetailChange = (optionIndex, detailIndex, value) => {
-    const updatedOptions = [...formData.financingOptions];
-    updatedOptions[optionIndex].details[detailIndex] = value;
-    setFormData({ ...formData, financingOptions: updatedOptions });
-  };
-
-  const handleAddDetail = (optionIndex) => {
-    const updatedOptions = [...formData.financingOptions];
-    updatedOptions[optionIndex].details.push('');
-    setFormData({ ...formData, financingOptions: updatedOptions });
-  };
-
-  const handleRemoveDetail = (optionIndex, detailIndex) => {
-    const updatedOptions = [...formData.financingOptions];
-    updatedOptions[optionIndex].details.splice(detailIndex, 1);
-    setFormData({ ...formData, financingOptions: updatedOptions });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -179,89 +106,6 @@ function AdminFinancing() {
           </div>
         </div>
 
-        {/* Financing Options */}
-        {formData.financingOptions.map((option, index) => (
-          <div key={index} className="rounded-4 p-4 p-md-5 surface-card admin-form-card fade-up fade-delay-2 mb-4" style={{
-            background: 'linear-gradient(135deg, #ffffff 0%, #f8faf9 100%)',
-            border: '1px solid rgba(45, 80, 22, 0.1)',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '4px',
-              background: 'linear-gradient(90deg, #2D5016 0%, #22C55E 100%)'
-            }}></div>
-            <h3 className="fw-bold mb-4 chart-title position-relative" style={{ fontSize: '1.5rem' }}>
-              <FontAwesomeIcon icon={faDollarSign} style={{ color: '#22C55E', marginRight: '0.5rem' }} />
-              Option {index + 1}: {option.title}
-            </h3>
-            <div className="row g-4">
-              <div className="col-12">
-                <label className="form-label fw-semibold mb-3 admin-form-label">
-                  Title
-                </label>
-                <input
-                  type="text"
-                  name="title"
-                  className="form-control rounded-3 admin-form-input"
-                  value={option.title}
-                  onChange={(e) => handleChange(e, 'financing', index)}
-                  style={{ padding: '14px 16px', fontSize: '0.95rem' }}
-                />
-              </div>
-              <div className="col-12">
-                <label className="form-label fw-semibold mb-3 admin-form-label">
-                  Description
-                </label>
-                <textarea
-                  name="description"
-                  className="form-control rounded-3 admin-form-input"
-                  rows="3"
-                  value={option.description}
-                  onChange={(e) => handleChange(e, 'financing', index)}
-                  style={{ padding: '14px 16px', fontSize: '0.95rem', resize: 'vertical' }}
-                />
-              </div>
-              <div className="col-12">
-                <label className="form-label fw-semibold mb-3 admin-form-label">
-                  <FontAwesomeIcon icon={faList} style={{ color: '#22C55E', marginRight: '0.5rem' }} />
-                  Key Features / Details
-                </label>
-                {option.details.map((detail, detailIndex) => (
-                  <div key={detailIndex} className="d-flex gap-2 mb-2">
-                    <input
-                      type="text"
-                      className="form-control rounded-3 admin-form-input"
-                      value={detail}
-                      onChange={(e) => handleDetailChange(index, detailIndex, e.target.value)}
-                      style={{ padding: '14px 16px', fontSize: '0.95rem' }}
-                    />
-                    <button
-                      type="button"
-                      className="btn btn-danger rounded-3"
-                      onClick={() => handleRemoveDetail(index, detailIndex)}
-                      style={{ minWidth: '50px' }}
-                    >
-                      ×
-                    </button>
-                  </div>
-                ))}
-                <button
-                  type="button"
-                  className="btn btn-outline-success rounded-3 mt-2"
-                  onClick={() => handleAddDetail(index)}
-                >
-                  + Add Detail
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
 
         <div className="d-flex justify-content-end gap-3 mt-4">
           <button type="button" className="btn rounded-pill px-4 px-md-5 admin-btn-cancel">
