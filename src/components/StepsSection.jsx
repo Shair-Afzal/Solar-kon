@@ -62,31 +62,55 @@ function StepsSection() {
   // Scroll effect only for desktop
   useEffect(() => {
     if (isMobile) return;
-
+  
+    let rafId = null;
+    let currentScrollTop = 0;
+  
+    const animateScroll = (targetScroll) => {
+      currentScrollTop += (targetScroll - currentScrollTop) * 0.10; // easing
+      stepsRef.current.scrollTop = currentScrollTop;
+  
+      // Continue animating until close enough
+      if (Math.abs(targetScroll - currentScrollTop) > 0.5) {
+        rafId = requestAnimationFrame(() => animateScroll(targetScroll));
+      } else {
+        currentScrollTop = targetScroll; // snap exactly
+      }
+    };
+  
     const handleScroll = () => {
       const section = sectionRef.current;
       const stepsBox = stepsRef.current;
-
+  
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const windowHeight = window.innerHeight;
       const scrollY = window.scrollY;
-
+  
       const stepsScrollHeight = stepsBox.scrollHeight - stepsBox.clientHeight;
-
+      let targetScroll = 0;
+  
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight - 50) {
         const progress = (scrollY - sectionTop) / (sectionHeight - windowHeight);
-        stepsBox.scrollTop = progress * stepsScrollHeight;
+        targetScroll = progress * stepsScrollHeight;
+      } else if (scrollY >= sectionTop + sectionHeight - windowHeight) {
+        targetScroll = stepsScrollHeight;
+      } else if (scrollY < sectionTop) {
+        targetScroll = 0;
       }
-
-      if (scrollY >= sectionTop + sectionHeight - windowHeight) {
-        stepsBox.scrollTop = stepsScrollHeight;
-      }
+  
+      // Cancel previous frame to avoid conflicts
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => animateScroll(targetScroll));
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [isMobile]);
+  
 
   return (
     <section ref={sectionRef} style={{ padding: "4rem 0", background: "#fff" }}>

@@ -145,10 +145,10 @@ function HeroSection() {
                     <div
                       key={index}
                       className='position-absolute top-0 start-0 w-100 h-100'
-                      style={{
+                    style={{
                         backgroundImage: `url(${img})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
                         opacity: currentSlide === index ? 1 : 0,
                         transition: 'opacity 0.8s ease-in-out',
                         zIndex: currentSlide === index ? 1 : 0,
@@ -170,7 +170,7 @@ function HeroSection() {
                         }}
                       />
                     ))}
-                  </div>
+                      </div>
                 </div>
               </div>
             </motion.div>

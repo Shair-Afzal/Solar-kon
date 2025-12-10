@@ -83,12 +83,12 @@ function TestimonialsSection() {
         </motion.div>
 
         {/* Swiper */}
-        <Swiper
+          <Swiper
           modules={[Pagination, Autoplay, Navigation]}
           pagination={{ clickable: true, bulletActiveClass: 'swiper-pagination-bullet-active-custom' }}
           navigation
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop
+            loop
           spaceBetween={30}
           breakpoints={{
             640: { slidesPerView: 1 },
@@ -96,9 +96,9 @@ function TestimonialsSection() {
             1024: { slidesPerView: 3 },
           }}
           className="testimonials-swiper"
-        >
-          {testimonials.map((item, index) => (
-            <SwiperSlide key={index}>
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -167,14 +167,14 @@ function TestimonialsSection() {
                       <div style={{ fontWeight: 700, color: '#14532d', fontSize: '1.1rem' }}>{item.name}</div>
                       <div className="text-muted">{item.title}</div>
                       <div style={{ fontSize: '0.85rem', color: '#166534' }}>{item.location}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
               </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
       {/* Custom Styles */}
       <style>{`

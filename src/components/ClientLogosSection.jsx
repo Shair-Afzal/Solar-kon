@@ -56,7 +56,7 @@ function ClientLogosSection() {
           >
             {duplicatedLogos.map((logo, index) => (
               <div
-                key={index}
+              key={index}
                 className='d-flex align-items-center justify-content-center'
                 style={{
                   minWidth: '150px',
@@ -79,8 +79,8 @@ function ClientLogosSection() {
                   {logo.name}
                 </span>
               </div>
-            ))}
-          </div>
+          ))}
+        </div>
         </div>
         <style>{`
           @keyframes scroll {
