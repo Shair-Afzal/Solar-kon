@@ -17,6 +17,9 @@ import NavbarFooterContent from './pages/admin/NavbarFooterContent';
 import Settings from './pages/admin/Settings';
 import HeroSection from './pages/admin/HeroSection';
 import AboutUs from './pages/admin/AboutUs';
+import AdminSolutions from './pages/admin/Solutions';
+import AdminFinancing from './pages/admin/Financing';
+import AdminContact from './pages/admin/Contact';
 
 function App() {
   useEffect(() => {
@@ -46,10 +49,12 @@ function App() {
           {/* <Route index element={<AdminDashboard />} /> */}
           <Route path="hero-section" element={<HeroSection />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route path="solutions" element={<AdminSolutions />} />
           <Route path="projects" element={<AdminProjects />} />
           <Route path="projects/add" element={<AdminProjects />} />
+          <Route path="financing" element={<AdminFinancing />} />
+          <Route path="contact" element={<AdminContact />} />
           <Route path="navbar-footer" element={<NavbarFooterContent />} />
-          <Route path="profile" element={<AdminProfile />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>

@@ -10,6 +10,9 @@ import {
   faTimes,
   faHome,
   faInfoCircle,
+  faLightbulb,
+  faDollarSign,
+  faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import webLogo from '../../assets/web-logo.svg';
@@ -31,9 +34,11 @@ function Sidebar() {
     // { icon: faTachometerAlt, label: 'Dashboard', path: '/admin' },
     { icon: faHome, label: 'Hero Section', path: '/admin/hero-section' },
     { icon: faInfoCircle, label: 'About Us', path: '/admin/about-us' },
+    { icon: faLightbulb, label: 'Solutions', path: '/admin/solutions' },
     { icon: faFolderOpen, label: 'Projects', path: '/admin/projects' },
+    { icon: faDollarSign, label: 'Financing', path: '/admin/financing' },
+    { icon: faEnvelope, label: 'Contact', path: '/admin/contact' },
     { icon: faBars, label: 'Navbar & Footer', path: '/admin/navbar-footer' },
-    { icon: faUser, label: 'Profile', path: '/admin/profile' },
     { icon: faCog, label: 'Settings', path: '/admin/settings' },
   ];
 
