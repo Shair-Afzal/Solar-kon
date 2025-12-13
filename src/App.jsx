@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
+import PageLoader from './components/PageLoader';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import Home from './pages/Home';
 import About from './pages/About';
 import Solutions from './pages/Solutions';
@@ -36,6 +38,8 @@ function App() {
 
   return (
     <Router>
+      <PageLoader />
+      <WhatsAppFloat />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

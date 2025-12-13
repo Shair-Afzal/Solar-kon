@@ -1,29 +1,30 @@
+import teamImg1 from '../../assets/images/teamwork.jpg';
+import teamImg2 from '../../assets/images/storyimg.jpg';
+import teamImg3 from '../../assets/images/storyimg2.jpg';
+import teamImg4 from '../../assets/images/solars.jpg';
+
 // TeamSection - meet our best team cards
 function TeamSection() {
   const team = [
     {
       name: 'Faisal Ahmed',
       role: 'Project Director',
-      image:
-        'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80',
+      image: teamImg1,
     },
     {
       name: 'Sara Malik',
       role: 'Lead Solar Engineer',
-      image:
-        'https://images.unsplash.com/photo-1544723795-432537d12f6c?auto=format&fit=crop&w=800&q=80',
+      image: teamImg2,
     },
     {
       name: 'Usman Khan',
       role: 'Energy Consultant',
-      image:
-        'https://images.unsplash.com/photo-1525130413817-d45c1d127c42?auto=format&fit=crop&w=800&q=80',
+      image: teamImg3,
     },
     {
       name: 'Ayesha Noor',
       role: 'Customer Success Lead',
-      image:
-        'https://images.unsplash.com/photo-1550525811-e5869dd03032?auto=format&fit=crop&w=800&q=80',
+      image: teamImg4,
     },
   ];
 

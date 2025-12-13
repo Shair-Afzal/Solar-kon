@@ -144,6 +144,7 @@ function StepsSection() {
           style={{
             border: "2px solid #e2e8f0",
             boxShadow: "0 8px 30px rgba(0,0,0,0.09)",
+            minHeight: isMobile ? "auto" : "650px",
           }}
         >
           {/* LEFT STATIC */}
@@ -165,24 +166,52 @@ function StepsSection() {
                 borderRadius: "20px",
                 fontSize: "1rem",
                 fontWeight: 600,
-                marginBottom: "1rem",
+                marginBottom: "1.5rem",
               }}
             >
               Working Methodology
             </span>
-            <h3 style={{ color: "#fff", fontSize: "1.6rem", marginBottom: "1rem" }}>
+            <h3 style={{ color: "#fff", fontSize: "1.8rem", marginBottom: "1.5rem", fontWeight: 700 }}>
               Our Process Flow
             </h3>
-            <p style={{ color: "rgba(255,255,255,0.9)", lineHeight: 1.8, fontSize: "1.1rem" }}>
+            <p style={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "2rem" }}>
               At Solarkon, we follow a systematic approach to ensure your solar installation is seamless and reliable. Each step is designed to provide maximum efficiency and transparency.
             </p>
+            
+            <div style={{ marginTop: "auto", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.2)" }}>
+              <h4 style={{ color: "#fff", fontSize: "1.3rem", marginBottom: "1rem", fontWeight: 600 }}>
+                Why Choose Our Process?
+              </h4>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                <li style={{ color: "rgba(255,255,255,0.9)", marginBottom: "1rem", fontSize: "1rem", lineHeight: 1.6, display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{ color: "#D1FAE5", fontSize: "1.2rem", marginTop: "0.2rem" }}>✓</span>
+                  <span>Certified engineers with years of experience in solar installations</span>
+                </li>
+                <li style={{ color: "rgba(255,255,255,0.9)", marginBottom: "1rem", fontSize: "1rem", lineHeight: 1.6, display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{ color: "#D1FAE5", fontSize: "1.2rem", marginTop: "0.2rem" }}>✓</span>
+                  <span>Comprehensive site assessment to maximize solar efficiency</span>
+                </li>
+                <li style={{ color: "rgba(255,255,255,0.9)", marginBottom: "1rem", fontSize: "1rem", lineHeight: 1.6, display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{ color: "#D1FAE5", fontSize: "1.2rem", marginTop: "0.2rem" }}>✓</span>
+                  <span>Quality assurance at every stage of installation</span>
+                </li>
+                <li style={{ color: "rgba(255,255,255,0.9)", marginBottom: "1rem", fontSize: "1rem", lineHeight: 1.6, display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{ color: "#D1FAE5", fontSize: "1.2rem", marginTop: "0.2rem" }}>✓</span>
+                  <span>Ongoing support and maintenance services included</span>
+                </li>
+                <li style={{ color: "rgba(255,255,255,0.9)", marginBottom: "0", fontSize: "1rem", lineHeight: 1.6, display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{ color: "#D1FAE5", fontSize: "1.2rem", marginTop: "0.2rem" }}>✓</span>
+                  <span>Full documentation and warranty coverage provided</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* RIGHT SCROLLABLE STEPS */}
           <div
             style={{
               flex: isMobile ? "none" : "1",
-              height: isMobile ? "auto" : "520px",
+              height: isMobile ? "auto" : "650px",
               overflowY: isMobile ? "visible" : "hidden",
               padding: "2rem",
             }}

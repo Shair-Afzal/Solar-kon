@@ -1,5 +1,6 @@
 import { HiShieldCheck, HiWrenchScrewdriver, HiAcademicCap } from 'react-icons/hi2';
 import { motion } from 'framer-motion';
+import benefitsImg from '../assets/images/solarimg1.jpg';
 
 function BenefitsSection() {
   const benefits = [
@@ -94,8 +95,7 @@ function BenefitsSection() {
               className='gradient-border rounded-4 overflow-hidden shadow-lg tilt-float'
               style={{
                 minHeight: 320,
-                backgroundImage:
-                  'url(https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80)',
+                backgroundImage: `url(${benefitsImg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}

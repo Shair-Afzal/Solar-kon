@@ -10,7 +10,7 @@ function HeroSection() {
     description: 'Switch to solar with SOLARKON and experience cost savings, energy independence, and a greener future with a system tailored to your needs.',
     buttonText: 'Get Free Consultation',
     heroImage: '',
-    videoThumbnail: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80',
+    videoThumbnail: '',
     videoDescription: 'Unlock the power of solar energy and enjoy long-term advantages.',
     stats: [
       { label: 'Solar Installations', value: '10k+', target: 10000 },

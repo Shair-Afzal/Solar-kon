@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi2';
+import financingHeroBg from '../assets/images/financeimg4.jpg';
+import financingHeroImg from '../assets/images/financeimg5.jpg';
 
 function Financing() {
   const [openAccordion, setOpenAccordion] = useState(0);
@@ -66,22 +68,78 @@ function Financing() {
       <Navbar />
       <main className="flex-grow-1">
         {/* Hero Section */}
-        <section className="section-shell bg-white" data-aos="fade-up">
-          <div className="container">
-            <div className="text-center mb-5">
-              <span className="eyebrow">Financing Options</span>
-              <h1 className="fw-bold section-title mt-3" style={{ fontSize: '2.5rem' }}>
-                Flexible Financing Solutions
-              </h1>
-              <p className="text-muted mt-3 mx-auto" style={{ maxWidth: '700px' }}>
-                Choose the financing option that best fits your needs and budget. We offer multiple ways to make solar energy accessible.
-              </p>
+        <section 
+          className="position-relative" 
+          data-aos="fade-up"
+          style={{
+            backgroundImage: `url(${financingHeroBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            minHeight: '500px',
+            display: 'flex',
+            alignItems: 'center',
+            paddingTop: '6rem',
+            paddingBottom: '4rem',
+          }}
+        >
+          <div 
+            className="position-absolute top-0 start-0 w-100 h-100"
+            style={{
+              background: 'linear-gradient(135deg, rgba(20, 83, 45, 0.85) 0%, rgba(22, 101, 52, 0.75) 100%)',
+              zIndex: 1,
+            }}
+          ></div>
+          <div className="container-fluid position-relative px-3 px-lg-5" style={{ zIndex: 2 }}>
+            <div className="row align-items-center g-2 g-lg-3">
+              <div className="col-lg-5 text-center text-lg-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <span 
+                    className="eyebrow d-inline-block mb-3"
+                    style={{ 
+                      color: '#D1FAE5', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      padding: '0.5rem 1.2rem',
+                      borderRadius: '25px',
+                    }}
+                  >
+                    Financing Options
+                  </span>
+                  <h1 className="fw-bold mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#ffffff', lineHeight: 1.2 }}>
+                    Flexible Financing Solutions
+                  </h1>
+                  <p className="mb-4" style={{ color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.15rem', lineHeight: 1.8, maxWidth: '600px' }}>
+                    Choose the financing option that best fits your needs and budget. We offer multiple ways to make solar energy accessible to everyone.
+                  </p>
+                </motion.div>
+              </div>
+              <div className="col-lg-7">
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="rounded-4 overflow-hidden"
+                  style={{
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+                  }}
+                >
+                  <img 
+                    src={financingHeroImg}
+                    alt="Solar Financing"
+                    className="w-100"
+                    style={{ height: '320px', objectFit: 'cover' }}
+                  />
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Accordion Section */}
-        <section className="section-shell pt-0" data-aos="fade-up">
+        <section className="section-shell" data-aos="fade-up">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-10">

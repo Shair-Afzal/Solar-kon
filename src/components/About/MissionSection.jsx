@@ -1,7 +1,8 @@
+import missionImg from '../../assets/images/teamwork.jpg';
+
 // MissionSection - image + text and key metrics
 function MissionSection() {
-  const missionImage =
-    'https://images.unsplash.com/photo-1509395230301-4b1e6b87a3f5?auto=format&fit=crop&w=1200&q=80';
+  const missionImage = missionImg;
 
   const stats = [
     { label: 'Solar Installations', value: '10k+' },
@@ -38,12 +39,14 @@ function MissionSection() {
 
             <div className="row g-3">
               {stats.map((item) => (
-                <div key={item.label} className="col-4">
-                  <div className="stat-card text-center text-lg-start">
-                    <div className="fw-bold" style={{ color: '#2D5016', fontSize: '1.2rem' }}>
+                <div key={item.label} className="col-12 col-sm-4">
+                  <div className="stat-card text-center text-lg-start" style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                    <div className="fw-bold" style={{ color: '#2D5016', fontSize: 'clamp(1rem, 3vw, 1.2rem)' }}>
                       {item.value}
                     </div>
-                    <div className="text-muted small text-uppercase">{item.label}</div>
+                    <div className="text-muted small text-uppercase" style={{ fontSize: 'clamp(0.7rem, 2vw, 0.875rem)', lineHeight: 1.4 }}>
+                      {item.label}
+                    </div>
                   </div>
                 </div>
               ))}

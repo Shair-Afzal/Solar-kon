@@ -1,10 +1,15 @@
+import galleryImg1 from '../../assets/images/solarimg4.jpg';
+import galleryImg2 from '../../assets/images/solarimg5.jpg';
+import galleryImg3 from '../../assets/images/solarinstallation.jpg';
+import galleryImg4 from '../../assets/images/solarimage2.jpg';
+
 // WhyChooseUs - dark section with image grid and copy + CTA
 function WhyChooseUs() {
   const gallery = [
-    'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1518961293643-4becefef7c54?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80',
+    galleryImg1,
+    galleryImg2,
+    galleryImg3,
+    galleryImg4,
   ];
 
   return (

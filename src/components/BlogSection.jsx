@@ -1,5 +1,8 @@
 import Card from './Card';
 import { motion } from 'framer-motion';
+import blogImg1 from '../assets/images/solarimg4.jpg';
+import blogImg2 from '../assets/images/solarimg5.jpg';
+import blogImg3 from '../assets/images/solarinstallation.jpg';
 
 function BlogSection() {
   const blogPosts = [
@@ -8,24 +11,21 @@ function BlogSection() {
       title: 'The Future of Solar Energy: Innovations and Trends',
       description:
         'Explore the latest advancements in solar technology and how they are shaping a sustainable future. From new panel designs to smart energy management systems, stay ahead with SOLARKON.',
-      image:
-        'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=900&q=80',
+      image: blogImg1,
     },
     {
       date: 'November 15, 2023',
       title: 'How Solar Panels Increase Your Home Value',
       description:
         "Discover how installing solar panels can significantly boost your property's market value and make it more attractive to potential buyers.",
-      image:
-        'https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=900&q=80',
+      image: blogImg2,
     },
     {
       date: 'December 5, 2023',
       title: 'Maximizing Your Solar Investment Returns',
       description:
         'Learn about the financial benefits of solar energy and how to maximize your return on investment with smart energy management strategies.',
-      image:
-        'https://images.unsplash.com/photo-1509395283749-8d6f0c7e1d0b?auto=format&fit=crop&w=900&q=80',
+      image: blogImg3,
     },
   ];
 

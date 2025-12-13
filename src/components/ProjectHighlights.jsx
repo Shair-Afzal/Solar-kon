@@ -1,6 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiArrowRight } from 'react-icons/hi2';
+import projectImg1 from '../assets/images/solarimg4.jpg';
+import projectImg2 from '../assets/images/solarimg5.jpg';
+import projectImg3 from '../assets/images/solarinstallation.jpg';
+import projectImg4 from '../assets/images/solarimage2.jpg';
+import projectImg5 from '../assets/images/solarimage3.jpg';
+import projectImg6 from '../assets/images/solars.jpg';
 
 function ProjectHighlights() {
   const navigate = useNavigate();
@@ -14,7 +20,7 @@ function ProjectHighlights() {
       capacity: '5 MWp',
       sector: 'Industrial',
       status: 'Completed',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80',
+      image: projectImg1,
     },
     {
       id: 2,
@@ -23,7 +29,7 @@ function ProjectHighlights() {
       capacity: '3.5 MWp',
       sector: 'Commercial',
       status: 'Completed',
-      image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1000&q=80',
+      image: projectImg2,
     },
     {
       id: 3,
@@ -32,7 +38,7 @@ function ProjectHighlights() {
       capacity: '1.2 MWp',
       sector: 'Industrial',
       status: 'Completed',
-      image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=80',
+      image: projectImg3,
     },
     {
       id: 4,
@@ -41,7 +47,7 @@ function ProjectHighlights() {
       capacity: '1 MWp',
       sector: 'Industrial',
       status: 'Completed',
-      image: 'https://images.unsplash.com/photo-1509395283749-8d6f0c7e1d0b?auto=format&fit=crop&w=1000&q=80',
+      image: projectImg4,
     },
     {
       id: 5,
@@ -50,7 +56,7 @@ function ProjectHighlights() {
       capacity: '1.075 MWp',
       sector: 'Industrial',
       status: 'Completed',
-      image: 'https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=1000&q=80',
+      image: projectImg5,
     },
     {
       id: 6,
@@ -59,7 +65,7 @@ function ProjectHighlights() {
       capacity: '500 KWp',
       sector: 'Commercial',
       status: 'Completed',
-      image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=80',
+      image: projectImg6,
     },
   ];
 

@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faImage, faList } from '@fortawesome/free-solid-svg-icons';
+import residentialAdminImg from '../../assets/images/homesolar.jpg';
+import commercialAdminImg from '../../assets/images/solarimage2.jpg';
+import industrialAdminImg from '../../assets/images/solarinstallation.jpg';
+import agriculturalAdminImg from '../../assets/images/solarwind.jpg';
 
 function AdminSolutions() {
   const [formData, setFormData] = useState({
@@ -10,7 +14,7 @@ function AdminSolutions() {
       {
         title: 'Residential Solutions',
         description: 'Supported by a skilled team of engineers and technical specialists across Pakistan, committed to lowering electricity costs and delivering top-tier, cutting-edge solutions for Pakistani communities.',
-        image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80',
+        image: residentialAdminImg,
         features: [
           'Customized system design for your home',
           'Net metering assistance',
@@ -21,7 +25,7 @@ function AdminSolutions() {
       {
         title: 'Commercial Solutions',
         description: 'Empower your workplace with efficient solar power systems, effectively replacing high-cost conventional energy.',
-        image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80',
+        image: commercialAdminImg,
         features: [
           'Reduced operational costs',
           'Scalable systems for businesses',
@@ -32,7 +36,7 @@ function AdminSolutions() {
       {
         title: 'Industrial Solutions',
         description: 'From factories to warehouses, high-capacity solar systems designed for heavy-load usage. Delivering stable energy and operational savings without compromising performance.',
-        image: 'https://images.unsplash.com/photo-1509395283749-8d6f0c7e1d0b?auto=format&fit=crop&w=1200&q=80',
+        image: industrialAdminImg,
         features: [
           'High-capacity systems',
           'Heavy-load optimization',
@@ -43,7 +47,7 @@ function AdminSolutions() {
       {
         title: 'Agricultural Solutions',
         description: 'Transition your farm to dependable, off-grid solar energy ensuring steady power for irrigation, pumping, and operations while slashing expenses. Boost yield and income with clean, cost-effective solutions.',
-        image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80',
+        image: agriculturalAdminImg,
         features: [
           'Off-grid solutions',
           'Irrigation system power',

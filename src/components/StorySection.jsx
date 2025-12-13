@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
+import storyImg from '../assets/images/storyimg.jpg';
 
 function StorySection() {
-  const storyImage =
-    'https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=80';
+  const storyImage = storyImg;
 
   const highlights = [
     {

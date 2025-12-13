@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeading, faFileAlt, faImage, faTrophy, faChartLine, faUsers, faList, faSave } from '@fortawesome/free-solid-svg-icons';
+import aboutHeroImg from '../../assets/images/storyimg.jpg';
+import missionImg from '../../assets/images/teamwork.jpg';
+import teamImg1 from '../../assets/images/teamwork.jpg';
+import teamImg2 from '../../assets/images/storyimg.jpg';
+import teamImg3 from '../../assets/images/storyimg2.jpg';
+import teamImg4 from '../../assets/images/solars.jpg';
 
 function AboutUs() {
   const [aboutHero, setAboutHero] = useState({
     title: 'Powering A Brighter Future',
     subtitle: 'Join us in building a sustainable, cost-effective future powered by the sun.',
-    heroImage: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=1400&q=80',
+    heroImage: aboutHeroImg,
     awards: [
       { title: 'Best Solar Energy Provider 2024', description: 'Recognized for excellence in solar solutions and customer service.' },
       { title: 'Top 10 Green Tech Leaders', description: 'Awarded for innovation in clean energy technology and deployment.' },
@@ -18,7 +24,7 @@ function AboutUs() {
     badge: '// About',
     title: 'Innovating Solar Solutions For A Sustainable Tomorrow',
     description: 'Solarkon is a leading provider of solar energy solutions, helping homeowners, businesses, and communities transition to clean, renewable power. Our in-house design, engineering, and installation teams work together to deliver systems that are efficient, reliable, and tailored to every project.',
-    image: 'https://images.unsplash.com/photo-1509395230301-4b1e6b87a3f5?auto=format&fit=crop&w=1200&q=80',
+    image: missionImg,
     stats: [
       { label: 'Solar Installations', value: '10k+' },
       { label: 'Tons of CO₂ Reduced', value: '100k' },
@@ -42,10 +48,10 @@ function AboutUs() {
     title: 'Meet Our Best Team',
     description: 'Passionate professionals dedicated to helping you make the switch to clean energy with confidence.',
     team: [
-      { name: 'Faisal Ahmed', role: 'Project Director', image: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80' },
-      { name: 'Sara Malik', role: 'Lead Solar Engineer', image: 'https://images.unsplash.com/photo-1544723795-432537d12f6c?auto=format&fit=crop&w=800&q=80' },
-      { name: 'Usman Khan', role: 'Energy Consultant', image: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42?auto=format&fit=crop&w=800&q=80' },
-      { name: 'Ayesha Noor', role: 'Customer Success Lead', image: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?auto=format&fit=crop&w=800&q=80' },
+      { name: 'Faisal Ahmed', role: 'Project Director', image: teamImg1 },
+      { name: 'Sara Malik', role: 'Lead Solar Engineer', image: teamImg2 },
+      { name: 'Usman Khan', role: 'Energy Consultant', image: teamImg3 },
+      { name: 'Ayesha Noor', role: 'Customer Success Lead', image: teamImg4 },
     ]
   });
 
@@ -60,10 +66,10 @@ function AboutUs() {
     ],
     buttonText: 'View Our Projects',
     gallery: [
-      'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1518961293643-4becefef7c54?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80',
+      teamImg1,
+      teamImg2,
+      teamImg3,
+      teamImg4,
     ],
     ctaTitle: 'Ready To Make The Switch To Solar?',
     ctaDescription: 'Talk with our energy consultants about a custom solar solution for your home or business.',

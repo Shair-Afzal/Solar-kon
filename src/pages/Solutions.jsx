@@ -2,6 +2,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { HiHomeModern, HiBuildingOffice2, HiBolt, HiTruck } from 'react-icons/hi2';
+import solutionsHeroBg from '../assets/images/homesolar.jpg';
+import solutionsHeroImg from '../assets/images/solarimg5.jpg';
+import residentialImg from '../assets/images/homesolar.jpg';
+import commercialImg from '../assets/images/solarimage2.jpg';
+import industrialImg from '../assets/images/solarinstallation.jpg';
+import agriculturalImg from '../assets/images/solarwind.jpg';
 
 function Solutions() {
   const solutions = [
@@ -9,7 +15,7 @@ function Solutions() {
       icon: <HiHomeModern size={32} />,
       title: 'Residential Solutions',
       description: 'Supported by a skilled team of engineers and technical specialists across Pakistan, committed to lowering electricity costs and delivering top-tier, cutting-edge solutions for Pakistani communities.',
-      image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80',
+      image: residentialImg,
       features: [
         'Customized system design for your home',
         'Net metering assistance',
@@ -21,7 +27,7 @@ function Solutions() {
       icon: <HiBuildingOffice2 size={32} />,
       title: 'Commercial Solutions',
       description: 'Empower your workplace with efficient solar power systems, effectively replacing high-cost conventional energy.',
-      image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=80',
+      image: commercialImg,
       features: [
         'Reduced operational costs',
         'Scalable systems for businesses',
@@ -33,7 +39,7 @@ function Solutions() {
       icon: <HiBolt size={32} />,
       title: 'Industrial Solutions',
       description: 'From factories to warehouses, high-capacity solar systems designed for heavy-load usage. Delivering stable energy and operational savings without compromising performance.',
-      image: 'https://images.unsplash.com/photo-1509395283749-8d6f0c7e1d0b?auto=format&fit=crop&w=1200&q=80',
+      image: industrialImg,
       features: [
         'High-capacity systems',
         'Heavy-load optimization',
@@ -45,7 +51,7 @@ function Solutions() {
       icon: <HiTruck size={32} />,
       title: 'Agricultural Solutions',
       description: 'Transition your farm to dependable, off-grid solar energy ensuring steady power for irrigation, pumping, and operations while slashing expenses. Boost yield and income with clean, cost-effective solutions.',
-      image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80',
+      image: agriculturalImg,
       features: [
         'Off-grid solutions',
         'Irrigation system power',
@@ -60,16 +66,72 @@ function Solutions() {
       <Navbar />
       <main className="flex-grow-1">
         {/* Hero Section */}
-        <section className="section-shell bg-white" data-aos="fade-up">
-          <div className="container">
-            <div className="text-center mb-5">
-              <span className="eyebrow">Our Solutions</span>
-              <h1 className="fw-bold section-title mt-3" style={{ fontSize: '2.5rem' }}>
-                Solar Solutions For Every Need
-              </h1>
-              <p className="text-muted mt-3 mx-auto" style={{ maxWidth: '700px' }}>
-                From residential homes to large industrial facilities, we provide tailored solar energy solutions that meet your specific requirements.
-              </p>
+        <section 
+          className="position-relative" 
+          data-aos="fade-up"
+          style={{
+            backgroundImage: `url(${solutionsHeroBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            minHeight: '500px',
+            display: 'flex',
+            alignItems: 'center',
+            paddingTop: '6rem',
+            paddingBottom: '4rem',
+          }}
+        >
+          <div 
+            className="position-absolute top-0 start-0 w-100 h-100"
+            style={{
+              background: 'linear-gradient(135deg, rgba(20, 83, 45, 0.85) 0%, rgba(22, 101, 52, 0.75) 100%)',
+              zIndex: 1,
+            }}
+          ></div>
+          <div className="container-fluid position-relative px-3 px-lg-5" style={{ zIndex: 2 }}>
+            <div className="row align-items-center g-2 g-lg-3">
+              <div className="col-lg-5 text-center text-lg-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <span 
+                    className="eyebrow d-inline-block mb-3"
+                    style={{ 
+                      color: '#D1FAE5', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                      padding: '0.5rem 1.2rem',
+                      borderRadius: '25px',
+                    }}
+                  >
+                    Our Solutions
+                  </span>
+                  <h1 className="fw-bold mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#ffffff', lineHeight: 1.2 }}>
+                    Solar Solutions For Every Need
+                  </h1>
+                  <p className="mb-4" style={{ color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.15rem', lineHeight: 1.8, maxWidth: '600px' }}>
+                    From residential homes to large industrial facilities, we provide tailored solar energy solutions that meet your specific requirements and maximize your savings.
+                  </p>
+                </motion.div>
+              </div>
+              <div className="col-lg-7">
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="rounded-4 overflow-hidden"
+                  style={{
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+                  }}
+                >
+                  <img 
+                    src={solutionsHeroImg}
+                    alt="Solar Solutions"
+                    className="w-100"
+                    style={{ height: '320px', objectFit: 'cover' }}
+                  />
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>

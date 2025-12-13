@@ -63,11 +63,32 @@ function Footer() {
                 type='email'
                 className='form-control form-control-sm bg-transparent border-light text-white'
                 placeholder='Your email'
+                style={{
+                  color: '#ffffff',
+                }}
               />
               <button type='submit' className='btn btn-sm fw-semibold btn-pill btn-soft-hover' style={{ backgroundColor: '#22C55E', color: '#2D5016' }}>
                 Subscribe
               </button>
             </form>
+            <style>{`
+              input[type="email"]::placeholder {
+                color: rgba(255, 255, 255, 0.8) !important;
+                opacity: 1;
+              }
+              input[type="email"]::-webkit-input-placeholder {
+                color: rgba(255, 255, 255, 0.8) !important;
+                opacity: 1;
+              }
+              input[type="email"]::-moz-placeholder {
+                color: rgba(255, 255, 255, 0.8) !important;
+                opacity: 1;
+              }
+              input[type="email"]:-ms-input-placeholder {
+                color: rgba(255, 255, 255, 0.8) !important;
+                opacity: 1;
+              }
+            `}</style>
           </div>
         </div>
 

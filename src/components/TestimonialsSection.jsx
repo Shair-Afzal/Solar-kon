@@ -5,6 +5,10 @@ import { HiStar } from 'react-icons/hi2';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import testimonialImg1 from '../assets/images/teamwork.jpg';
+import testimonialImg2 from '../assets/images/storyimg.jpg';
+import testimonialImg3 from '../assets/images/storyimg2.jpg';
+import testimonialImg4 from '../assets/images/solars.jpg';
 
 function TestimonialsSection() {
   const testimonials = [
@@ -24,7 +28,7 @@ function TestimonialsSection() {
       quote:
         "Switching to solar with SOLARKON was the best decision for our company. We've seen significant cost savings and our customers appreciate our commitment to sustainability. The ROI has been excellent!",
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
+      image: testimonialImg2,
     },
     {
       name: 'Hassan Malik',
@@ -33,7 +37,7 @@ function TestimonialsSection() {
       quote:
         "The team at SOLARKON made the entire process seamless. From consultation to installation, everything was handled professionally. Our property value has increased significantly, and maintenance is hassle-free.",
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
+      image: testimonialImg3,
     },
     {
       name: 'Sara Ahmed',
@@ -42,7 +46,7 @@ function TestimonialsSection() {
       quote:
         "Excellent service from start to finish! SOLARKON helped us choose the perfect system for our home. The installation was quick, and we're already seeing great savings on our electricity bills.",
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
+      image: testimonialImg4,
     },
   ];
 
